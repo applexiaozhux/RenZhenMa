@@ -74,14 +74,12 @@
 		8B223EF0213D6391007B8344 /* RenZhenMaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenZhenMaUITests.m; sourceTree = "<group>"; };
 		8B223EF2213D6391007B8344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1007A6C95200EB3A4510D0C /* Pods-RenZhenMa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.release.xcconfig"; sourceTree = "<group>"; };
-		BC3A13562140CA5C002F450C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC3A13582140CC00002F450C /* RXNetWorkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXNetWorkTool.h; sourceTree = "<group>"; };
 		BC3A13592140CC00002F450C /* RXNetWorkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXNetWorkTool.m; sourceTree = "<group>"; };
 		BC3A135B2140CC27002F450C /* RXNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXNetManager.h; sourceTree = "<group>"; };
 		BC3A135C2140CC27002F450C /* RXNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXNetManager.m; sourceTree = "<group>"; };
 		BC3A135F2140CEDB002F450C /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		BC3A13602140CEDB002F450C /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
-		BC3A13622140D3A9002F450C /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		E934B21F13BD7DB3050D0A85 /* Pods-RenZhenMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,9 +153,9 @@
 		57842A1A2140B9CF006DF676 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				57842A442140F682006DF676 /* Model */,
+				57842A432140F677006DF676 /* View */,
 				57842A1B2140B9CF006DF676 /* Controller */,
-				57842A1C2140B9CF006DF676 /* Model */,
-				57842A1D2140B9CF006DF676 /* View */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -169,20 +167,6 @@
 				57842A262140BA39006DF676 /* XYScanMainViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		57842A1C2140B9CF006DF676 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		57842A1D2140B9CF006DF676 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		57842A1E2140B9D9006DF676 /* Controller */ = {
@@ -246,6 +230,20 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		57842A432140F677006DF676 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57842A442140F682006DF676 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8B223EC0213D638D007B8344 = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +295,6 @@
 		BC3A134D2140C9A3002F450C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				BC3A13562140CA5C002F450C /* PrefixHeader.pch */,
-				BC3A13622140D3A9002F450C /* common.h */,
 				BC3A13582140CC00002F450C /* RXNetWorkTool.h */,
 				BC3A13592140CC00002F450C /* RXNetWorkTool.m */,
 				BC3A135B2140CC27002F450C /* RXNetManager.h */,
@@ -672,7 +668,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NJZFZ43S58;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RenZhenMa/Classes/Tool/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -693,7 +689,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NJZFZ43S58;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RenZhenMa/Classes/Tool/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
