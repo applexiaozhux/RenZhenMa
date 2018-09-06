@@ -9,6 +9,7 @@
 #import "RXScanRecordViewController.h"
 #import "XYCommonHeader.h"
 #import "RXScanRecord.h"
+#import "RXScanRecordModel.h"
 
 @interface RXScanRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -26,6 +27,8 @@
     _listArr = [NSMutableArray array];
     
     [self initView];
+    
+    [self loadData];
 }
 
 -(void)initView{
@@ -49,7 +52,28 @@
     
 }
 
-
+//获取扫描记录调用接口（扫描记录页） code为1时，把info数据显示出来。 code不为1，根据返回结果message给出提示
+-(void)loadData{
+    [self.listArr removeAllObjects];
+    NSDictionary *dic=@{@"wxid":@"2",@"page":@"",@"num":@"",@"token":@""};
+    
+    [RXNetWorkTool POST:BASE_URL(@"scanRecord") parameters:dic progress:nil success:^(id  _Nonnull responseObject) {
+        if ([[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"code"]] isEqualToString:@"1"]) {
+            
+            NSArray *data = [responseObject objectForKey:@"info"];
+            for (NSDictionary *list in data) {
+                RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
+                [self.listArr addObject:model];
+            }
+            
+        }else{
+            NSString *messageStr = [responseObject objectForKey:@"message"];
+            
+        }
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //    return self.listArr.count;
