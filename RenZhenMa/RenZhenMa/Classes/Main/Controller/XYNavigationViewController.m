@@ -12,6 +12,8 @@
 #import "UIImage+XYColorString.h"
 @interface XYNavigationViewController ()<UIGestureRecognizerDelegate>
 
+@property(nonatomic,retain) UIImage *shadowImg;
+
 @end
 
 @implementation XYNavigationViewController
@@ -29,11 +31,28 @@
 
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     self.interactivePopGestureRecognizer.delegate = self;
+    self.shadowImg = self.navigationBar.shadowImage;
+    [self showShadowImageView:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showShadowImageView:(BOOL)isShow{
+    
+    if (isShow) {
+        self.navigationBar.shadowImage = self.shadowImg;
+    }else{
+        self.navigationBar.shadowImage = [UIImage new];
+    }
+    
+}
+
+-(void)backClick{
+    
+    [self popViewControllerAnimated:YES];
 }
 
 
@@ -43,6 +62,7 @@
         if ([UIApplication sharedApplication].statusBarStyle==UIStatusBarStyleLightContent) {
             [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
         }
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"return"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(backClick)];
     }
    
     [super pushViewController:viewController animated:animated];
