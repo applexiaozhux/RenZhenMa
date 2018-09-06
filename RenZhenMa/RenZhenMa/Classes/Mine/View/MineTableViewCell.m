@@ -7,6 +7,7 @@
 //
 
 #import "MineTableViewCell.h"
+#import "XYCommonHeader.h"
 
 @implementation MineTableViewCell
 
@@ -35,13 +36,13 @@
         self.titleL = [[UILabel alloc] init];
         self.titleL.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
         self.titleL.textAlignment = NSTextAlignmentLeft;
-        self.titleL.textColor = [UIColor colorWithHexString:@"#666666"];
+        self.titleL.textColor = [UIColor colorWithString:@"#666666"];
         [self.contentView addSubview:self.titleL];
         
         self.subTitleLabel = [[UILabel alloc] init];
         self.subTitleLabel.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
         self.subTitleLabel.textAlignment = NSTextAlignmentLeft;
-        self.subTitleLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+        self.subTitleLabel.textColor = [UIColor colorWithString:@"#999999"];
         [self.contentView addSubview:self.subTitleLabel];
         self.subTitleLabel.textAlignment = NSTextAlignmentRight;
         [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

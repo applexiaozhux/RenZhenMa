@@ -7,7 +7,7 @@
 //
 
 #import "RXNetManager.h"
-
+#import "XYConst.h"
 
 @implementation RXNetManager
 

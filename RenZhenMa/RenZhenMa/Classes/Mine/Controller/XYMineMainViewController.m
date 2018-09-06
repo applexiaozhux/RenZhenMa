@@ -8,6 +8,7 @@
 
 #import "XYMineMainViewController.h"
 #import "MineTableViewCell.h"
+#import "XYCommonHeader.h"
 
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 
@@ -26,7 +27,6 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     _listArr = [NSMutableArray array];
     [_listArr addObjectsFromArray:@[@{@"name":@"钱包",@"icon":@"mine_wallet"},@{@"name":@"设置",@"icon":@"mine_settings"},@{@"name":@"退出登录",@"icon":@""}]];
     [self initView];
-
     
 }
 
@@ -36,7 +36,7 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCALE375_WIDTH(95)+KNavigationBar_Height)];
     [headView setBackgroundColor:[UIColor whiteColor]];
-    [headView addSubview:self.headView];
+    [self.view addSubview:headView];
     
     _tableView = ({
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
