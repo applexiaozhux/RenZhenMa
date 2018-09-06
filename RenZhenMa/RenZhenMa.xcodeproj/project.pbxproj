@@ -31,6 +31,8 @@
 		BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A1370214104E2002F450C /* RXAboutsViewController.m */; };
 		BC3A137521410D84002F450C /* RXFeedRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A137321410D84002F450C /* RXFeedRecordCell.m */; };
 		BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137421410D84002F450C /* RXFeedRecordCell.xib */; };
+		BC3A137A21411567002F450C /* RXScanRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A137821411567002F450C /* RXScanRecord.m */; };
+		BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137921411567002F450C /* RXScanRecord.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,9 @@
 		BC3A137221410D84002F450C /* RXFeedRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFeedRecordCell.h; sourceTree = "<group>"; };
 		BC3A137321410D84002F450C /* RXFeedRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXFeedRecordCell.m; sourceTree = "<group>"; };
 		BC3A137421410D84002F450C /* RXFeedRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXFeedRecordCell.xib; sourceTree = "<group>"; };
+		BC3A137721411567002F450C /* RXScanRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecord.h; sourceTree = "<group>"; };
+		BC3A137821411567002F450C /* RXScanRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecord.m; sourceTree = "<group>"; };
+		BC3A137921411567002F450C /* RXScanRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXScanRecord.xib; sourceTree = "<group>"; };
 		E934B21F13BD7DB3050D0A85 /* Pods-RenZhenMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -341,6 +346,9 @@
 				BC3A137221410D84002F450C /* RXFeedRecordCell.h */,
 				BC3A137321410D84002F450C /* RXFeedRecordCell.m */,
 				BC3A137421410D84002F450C /* RXFeedRecordCell.xib */,
+				BC3A137721411567002F450C /* RXScanRecord.h */,
+				BC3A137821411567002F450C /* RXScanRecord.m */,
+				BC3A137921411567002F450C /* RXScanRecord.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B223ED9213D6391007B8344 /* LaunchScreen.storyboard in Resources */,
+				BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */,
 				8B223ED6213D6391007B8344 /* Assets.xcassets in Resources */,
 				BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */,
 				8B223ED4213D638E007B8344 /* Main.storyboard in Resources */,
@@ -524,6 +533,7 @@
 				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
 				57842A352140BB53006DF676 /* UIImage+XYColorString.m in Sources */,
+				BC3A137A21411567002F450C /* RXScanRecord.m in Sources */,
 				8B223EDC213D6391007B8344 /* main.m in Sources */,
 				BC3A136E2141004F002F450C /* RXSettingViewController.m in Sources */,
 				8B223ECE213D638E007B8344 /* AppDelegate.m in Sources */,

@@ -29,7 +29,6 @@
     [self initView];
 }
 
-
 -(void)initView{
     
     _tableView = ({
