@@ -1,0 +1,111 @@
+
+//
+//  XYTabBarController.m
+//  YiTuoCompany
+//
+//  Created by xiyang on 2017/3/7.
+//  Copyright © 2017年 xiyang. All rights reserved.
+//
+
+#import "XYTabBarController.h"
+#import "XYNavigationViewController.h"
+#import "XYScanMainViewController.h"
+#import "XYMineMainViewController.h"
+#import "XYCommonHeader.h"
+
+@interface XYTabBarController ()<UITabBarControllerDelegate>
+
+@end
+
+@implementation XYTabBarController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self initSubViews];
+    self.delegate = self;
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)initSubViews{
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    XYScanMainViewController *scanVC = [[XYScanMainViewController alloc] init];
+    [self addController:scanVC normalImageNamed:@"scan" selecteImageNamed:@"scan_pre" titile:@"扫一扫"];
+    
+
+    
+    XYMineMainViewController *mineVC = [[XYMineMainViewController alloc] init];
+    [self addController:mineVC normalImageNamed:@"my" selecteImageNamed:@"my_pre" titile:@"我的"];
+    self.tabBar.tintColor = [UIColor colorWithString:kThemeColorStr];
+    
+}
+
+
+-(void)showLoginViewController{
+//    if ([XYUserInfoManager sharedUserInfoManager].userInfo.isLogin) {
+//        [[XYUserInfoManager sharedUserInfoManager] clearUserInfoModel];
+//    }
+//    [self showLoginVC:YES];
+
+}
+-(void)showCurrentViewController:(ChildViewControllerType)type{
+    
+    self.selectedIndex = type;
+    
+}
+
+-(void)addController:(UIViewController *)controller normalImageNamed:(NSString *)normal selecteImageNamed:(NSString *)selecte titile:(NSString *)title{
+    
+    XYNavigationViewController *navigationVC = [[XYNavigationViewController alloc] initWithRootViewController:controller];
+    if (normal&&normal.length>0) {
+        navigationVC.tabBarItem.image = [[UIImage imageNamed:normal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    if (selecte&&selecte.length>0) {
+        navigationVC.tabBarItem.selectedImage = [[UIImage imageNamed:selecte] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    navigationVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    navigationVC.tabBarItem.title = title;
+    
+    [self addChildViewController:navigationVC];
+    
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+
+
+/**
+ 显示登录界面
+
+ @param logout 是否是点击退出登录出现的
+ */
+-(void)showLoginVC:(BOOL)logout{
+    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+//    XYLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"XYLoginVC"];
+//    loginVC.isLogOutShow = logout;
+//    __weak XYTabBarController *weakSelf= self;
+//    loginVC.loginSuccessBlock = ^{
+//        weakSelf.selectedIndex = 3;
+//    };
+//    XYNavigationViewController *navigationVC = [[XYNavigationViewController alloc] initWithRootViewController:loginVC];
+//
+//    [self presentViewController:navigationVC animated:YES completion:^{
+//
+//    }];
+    
+    
+}
+
+
+
+
+
+@end
