@@ -24,6 +24,11 @@
 		BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13592140CC00002F450C /* RXNetWorkTool.m */; };
 		BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A135C2140CC27002F450C /* RXNetManager.m */; };
 		BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13602140CEDB002F450C /* MineTableViewCell.m */; };
+		BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13642140FFBD002F450C /* RXScanRecordViewController.m */; };
+		BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A136721410008002F450C /* RXFeedRecordViewController.m */; };
+		BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A136A2141003D002F450C /* RXIdeaFeedbackViewController.m */; };
+		BC3A136E2141004F002F450C /* RXSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A136D2141004F002F450C /* RXSettingViewController.m */; };
+		BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A1370214104E2002F450C /* RXAboutsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,16 @@
 		BC3A135C2140CC27002F450C /* RXNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXNetManager.m; sourceTree = "<group>"; };
 		BC3A135F2140CEDB002F450C /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		BC3A13602140CEDB002F450C /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
+		BC3A13632140FFBD002F450C /* RXScanRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecordViewController.h; sourceTree = "<group>"; };
+		BC3A13642140FFBD002F450C /* RXScanRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecordViewController.m; sourceTree = "<group>"; };
+		BC3A136621410008002F450C /* RXFeedRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFeedRecordViewController.h; sourceTree = "<group>"; };
+		BC3A136721410008002F450C /* RXFeedRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXFeedRecordViewController.m; sourceTree = "<group>"; };
+		BC3A13692141003D002F450C /* RXIdeaFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXIdeaFeedbackViewController.h; sourceTree = "<group>"; };
+		BC3A136A2141003D002F450C /* RXIdeaFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXIdeaFeedbackViewController.m; sourceTree = "<group>"; };
+		BC3A136C2141004F002F450C /* RXSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXSettingViewController.h; sourceTree = "<group>"; };
+		BC3A136D2141004F002F450C /* RXSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXSettingViewController.m; sourceTree = "<group>"; };
+		BC3A136F214104E2002F450C /* RXAboutsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXAboutsViewController.h; sourceTree = "<group>"; };
+		BC3A1370214104E2002F450C /* RXAboutsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXAboutsViewController.m; sourceTree = "<group>"; };
 		E934B21F13BD7DB3050D0A85 /* Pods-RenZhenMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +209,16 @@
 			children = (
 				57842A282140BA4C006DF676 /* XYMineMainViewController.h */,
 				57842A292140BA4C006DF676 /* XYMineMainViewController.m */,
+				BC3A13632140FFBD002F450C /* RXScanRecordViewController.h */,
+				BC3A13642140FFBD002F450C /* RXScanRecordViewController.m */,
+				BC3A136621410008002F450C /* RXFeedRecordViewController.h */,
+				BC3A136721410008002F450C /* RXFeedRecordViewController.m */,
+				BC3A13692141003D002F450C /* RXIdeaFeedbackViewController.h */,
+				BC3A136A2141003D002F450C /* RXIdeaFeedbackViewController.m */,
+				BC3A136C2141004F002F450C /* RXSettingViewController.h */,
+				BC3A136D2141004F002F450C /* RXSettingViewController.m */,
+				BC3A136F214104E2002F450C /* RXAboutsViewController.h */,
+				BC3A1370214104E2002F450C /* RXAboutsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -485,14 +510,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */,
 				BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */,
+				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
 				57842A352140BB53006DF676 /* UIImage+XYColorString.m in Sources */,
 				8B223EDC213D6391007B8344 /* main.m in Sources */,
+				BC3A136E2141004F002F450C /* RXSettingViewController.m in Sources */,
 				8B223ECE213D638E007B8344 /* AppDelegate.m in Sources */,
 				57842A302140BB0E006DF676 /* XYNavigationViewController.m in Sources */,
 				57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */,
+				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
 				BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */,
+				BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */,
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
 				BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */,

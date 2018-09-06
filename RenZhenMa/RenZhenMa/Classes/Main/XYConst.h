@@ -27,7 +27,7 @@ static NSString *kThemeColorStr = @"#00a950"; //主题颜色
 
 #define RGBCOLOR(r, g, b)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 //背景色
-#define DeviceBackGroundColor        [UIColor colorWithString:@"#f7f8f9"]
+#define DeviceBackGroundColor        [UIColor colorWithString:@"#efeff4"]
 // 下划线
 #define DeviceLineViewColor         [UIColor colorWithString:@"#e5e5e5"]
 
@@ -36,6 +36,22 @@ static NSString *kThemeColorStr = @"#00a950"; //主题颜色
 #define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
 // 按设备宽度做适配 UI 出图750px宽
 #define SCALE375_WIDTH(x) (([UIScreen mainScreen].bounds.size.width/375.0)*(x))
+
+
+// View 坐标(x,y)和宽高(width,height)
+#define X(v)                    (v).frame.origin.x
+#define Y(v)                    (v).frame.origin.y
+#define WIDTH(v)                (v).frame.size.width
+#define HEIGHT(v)               (v).frame.size.height
+
+#define MinX(v)                 CGRectGetMinX((v).frame)
+#define MinY(v)                 CGRectGetMinY((v).frame)
+
+#define MidX(v)                 CGRectGetMidX((v).frame)
+#define MidY(v)                 CGRectGetMidY((v).frame)
+
+#define MaxX(v)                 CGRectGetMaxX((v).frame)
+#define MaxY(v)                 CGRectGetMaxY((v).frame)
 
 
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)

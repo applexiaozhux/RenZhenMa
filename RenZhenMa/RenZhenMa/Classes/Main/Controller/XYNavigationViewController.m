@@ -26,6 +26,7 @@
                                             }];
     
     [navigationBar setBackgroundImage:[UIImage navigationBarImageWithColorString:kThemeColorStr] forBarMetrics:UIBarMetricsDefault];
+
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     self.interactivePopGestureRecognizer.delegate = self;
 }

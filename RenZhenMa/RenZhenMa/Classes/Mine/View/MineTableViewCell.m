@@ -36,7 +36,7 @@
         self.titleL = [[UILabel alloc] init];
         self.titleL.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
         self.titleL.textAlignment = NSTextAlignmentLeft;
-        self.titleL.textColor = [UIColor colorWithString:@"#666666"];
+        self.titleL.textColor = [UIColor colorWithString:@"#333333"];
         [self.contentView addSubview:self.titleL];
         
         [self.titleL mas_makeConstraints:^(MASConstraintMaker *make) {

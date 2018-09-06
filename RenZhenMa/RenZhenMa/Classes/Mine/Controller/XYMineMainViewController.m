@@ -7,8 +7,12 @@
 //
 
 #import "XYMineMainViewController.h"
-#import "MineTableViewCell.h"
 #import "XYCommonHeader.h"
+#import "MineTableViewCell.h"
+#import "RXScanRecordViewController.h"
+#import "RXFeedRecordViewController.h"
+#import "RXIdeaFeedbackViewController.h"
+#import "RXSettingViewController.h"
 
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 
@@ -24,23 +28,50 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = DeviceBackGroundColor;
+    
     self.title = @"我的";
     _listArr = [NSMutableArray array];
-    [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"mine_settings"},@{@"name":@"范反馈记录",@"icon":@"mine_settings"},@{@"name":@"意见反馈",@"icon":@"mine_settings"},@{@"name":@"设置",@"icon":@"mine_settings"}]];
+    [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"mine_settings"},@{@"name":@"反馈记录",@"icon":@"mine_settings"},@{@"name":@"意见反馈",@"icon":@"mine_settings"},@{@"name":@"设置",@"icon":@"mine_settings"}]];
     [self initView];
     
 }
 
 
 -(void)initView{
-    self.view.backgroundColor = DeviceBackGroundColor;
     
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCALE375_WIDTH(95)+KNavigationBar_Height)];
     [headView setBackgroundColor:[UIColor colorWithString:kThemeColorStr]];
     [self.view addSubview:headView];
     
+    UIImageView *iconImg = [[UIImageView alloc] init];
+    [iconImg setImage:[UIImage imageNamed:@"mine_settings"]];
+    [headView addSubview:iconImg];
+    iconImg.layer.masksToBounds = YES;
+    iconImg.layer.cornerRadius = SCALE375_WIDTH(50)/2;
+    [iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(@SCALE375_WIDTH(50));
+        make.height.equalTo(@SCALE375_WIDTH(50));
+        make.centerY.equalTo(headView.mas_centerY).offset(-10);
+        make.centerX.equalTo(headView.mas_centerX);
+    }];
+    
+    UILabel *nameLab = [[UILabel alloc] init];
+    nameLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
+    nameLab.textAlignment = NSTextAlignmentCenter;
+    nameLab.textColor = [UIColor whiteColor];
+    nameLab.text = @"测试";
+    [headView addSubview:nameLab];
+    
+    [nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headView.mas_left);
+        make.top.equalTo(iconImg.mas_bottom).offset(15);
+        make.right.equalTo(headView.mas_right);
+        make.height.equalTo(@SCALE375_WIDTH(15));
+    }];
+    
     _tableView = ({
-        UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
         tableView.showsHorizontalScrollIndicator = NO;
         tableView.rowHeight = SCALE375_WIDTH(47);
@@ -54,9 +85,13 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     });
     [self.view addSubview:self.tableView];
     
+    
+    UIView *underView = [[UIView alloc] initWithFrame:CGRectMake(0, -300, SCREEN_WIDTH, 300)];
+    underView.backgroundColor = [UIColor colorWithString:kThemeColorStr];
+    [self.tableView addSubview:underView];
 }
 
-
+#pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listArr.count;
 }
@@ -73,13 +108,21 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (indexPath.row ==0) {//扫描记录
-        
+        RXScanRecordViewController *vc = [[RXScanRecordViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 1) {//反馈记录
-        
+        RXFeedRecordViewController *vc = [[RXFeedRecordViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 2) {//意见反馈
-
+        RXIdeaFeedbackViewController *vc = [[RXIdeaFeedbackViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }else{//设置
-
+        RXSettingViewController *vc = [[RXSettingViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {
