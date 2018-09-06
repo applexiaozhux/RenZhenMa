@@ -24,8 +24,9 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"我的";
     _listArr = [NSMutableArray array];
-    [_listArr addObjectsFromArray:@[@{@"name":@"钱包",@"icon":@"mine_wallet"},@{@"name":@"设置",@"icon":@"mine_settings"},@{@"name":@"退出登录",@"icon":@""}]];
+    [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"mine_settings"},@{@"name":@"范反馈记录",@"icon":@"mine_settings"},@{@"name":@"意见反馈",@"icon":@"mine_settings"},@{@"name":@"设置",@"icon":@"mine_settings"}]];
     [self initView];
     
 }
@@ -35,7 +36,7 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     self.view.backgroundColor = DeviceBackGroundColor;
     
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCALE375_WIDTH(95)+KNavigationBar_Height)];
-    [headView setBackgroundColor:[UIColor whiteColor]];
+    [headView setBackgroundColor:[UIColor colorWithString:kThemeColorStr]];
     [self.view addSubview:headView];
     
     _tableView = ({
@@ -53,7 +54,33 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     });
     [self.view addSubview:self.tableView];
     
+}
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.listArr.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MineTableViewCellIdentifier];
+    NSDictionary *item = self.listArr[indexPath.row];
+    [cell.imgView setImage:[UIImage imageNamed:[item objectForKey:@"icon"]]];
+    cell.titleL.text = [item objectForKey:@"name"];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.row ==0) {//扫描记录
+        
+    }else if (indexPath.row == 1) {//反馈记录
+        
+    }else if (indexPath.row == 2) {//意见反馈
+
+    }else{//设置
+
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -12,6 +12,5 @@
 @property (nonatomic, strong) UIImageView* imgView;
 @property (nonatomic, strong) UILabel* titleL;
 @property (nonatomic, strong) UIView* lineView;
-@property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, strong)UIImageView* arrowImg;
 @end

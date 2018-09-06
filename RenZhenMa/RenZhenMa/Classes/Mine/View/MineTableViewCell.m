@@ -24,7 +24,7 @@
         }];
         
         self.arrowImg = [[UIImageView alloc] init];
-        [self.arrowImg setImage:[UIImage imageNamed:@"mine_arrow"]];
+        [self.arrowImg setImage:[UIImage imageNamed:@"listview_arrow"]];
         [self.contentView addSubview:self.arrowImg];
         [self.arrowImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.contentView.mas_right).with.offset(-22);
@@ -39,23 +39,10 @@
         self.titleL.textColor = [UIColor colorWithString:@"#666666"];
         [self.contentView addSubview:self.titleL];
         
-        self.subTitleLabel = [[UILabel alloc] init];
-        self.subTitleLabel.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
-        self.subTitleLabel.textAlignment = NSTextAlignmentLeft;
-        self.subTitleLabel.textColor = [UIColor colorWithString:@"#999999"];
-        [self.contentView addSubview:self.subTitleLabel];
-        self.subTitleLabel.textAlignment = NSTextAlignmentRight;
-        [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView.mas_top);
-            make.bottom.equalTo(self.contentView.mas_bottom);
-            make.right.equalTo(self.arrowImg.mas_left).with.offset(-10);
-        }];
-        
         [self.titleL mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.imgView.mas_right).with.offset(12);
             make.top.equalTo(self.contentView.mas_top);
             make.bottom.equalTo(self.contentView.mas_bottom);
-//            make.right.equalTo(self.subTitleLabel.mas_left).with.offset(-10);
             make.right.equalTo(self.contentView).with.offset(-49);
         }];
     }

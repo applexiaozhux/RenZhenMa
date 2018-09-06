@@ -23,7 +23,7 @@
 //#endif
 
 
-static NSString *kThemeColorStr = @"#25A857"; //主题颜色
+static NSString *kThemeColorStr = @"#00a950"; //主题颜色
 
 #define RGBCOLOR(r, g, b)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 //背景色
