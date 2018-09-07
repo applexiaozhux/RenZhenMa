@@ -14,6 +14,7 @@
 #import "RXIdeaFeedbackViewController.h"
 #import "RXSettingViewController.h"
 #import "RXLoginViewController.h"
+#import "XYNavigationViewController.h"
 
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 
@@ -38,6 +39,18 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     
 }
 
+
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    XYNavigationViewController *naviVC = (XYNavigationViewController *)self.navigationController;
+//    [naviVC showShadowImageView:NO];
+//}
+//
+//-(void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    XYNavigationViewController *naviVC = (XYNavigationViewController *)self.navigationController;
+//    [naviVC showShadowImageView:YES];
+//}
 
 -(void)initView{
     
@@ -136,14 +149,6 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
