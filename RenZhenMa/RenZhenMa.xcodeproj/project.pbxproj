@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756AFC21421151007A9B02 /* XYZQRScanView.m */; };
+		57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756AFF2142130F007A9B02 /* XYShowScanViewController.m */; };
 		57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A262140BA39006DF676 /* XYScanMainViewController.m */; };
 		57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A292140BA4C006DF676 /* XYMineMainViewController.m */; };
 		57842A302140BB0E006DF676 /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A2C2140BB0E006DF676 /* XYNavigationViewController.m */; };
@@ -59,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57756AFB21421151007A9B02 /* XYZQRScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZQRScanView.h; sourceTree = "<group>"; };
+		57756AFC21421151007A9B02 /* XYZQRScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZQRScanView.m; sourceTree = "<group>"; };
+		57756AFE2142130F007A9B02 /* XYShowScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYShowScanViewController.h; sourceTree = "<group>"; };
+		57756AFF2142130F007A9B02 /* XYShowScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYShowScanViewController.m; sourceTree = "<group>"; };
 		57842A252140BA39006DF676 /* XYScanMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYScanMainViewController.h; sourceTree = "<group>"; };
 		57842A262140BA39006DF676 /* XYScanMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYScanMainViewController.m; sourceTree = "<group>"; };
 		57842A282140BA4C006DF676 /* XYMineMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMineMainViewController.h; sourceTree = "<group>"; };
@@ -169,6 +175,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		57756AF921421122007A9B02 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		57756AFA21421122007A9B02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57756AFB21421151007A9B02 /* XYZQRScanView.h */,
+				57756AFC21421151007A9B02 /* XYZQRScanView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		57842A182140B982006DF676 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +219,8 @@
 		57842A1A2140B9CF006DF676 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				57756AF921421122007A9B02 /* Model */,
+				57756AFA21421122007A9B02 /* View */,
 				57842A1B2140B9CF006DF676 /* Controller */,
 			);
 			path = Scan;
@@ -213,6 +237,8 @@
 				BC21DC91214204B20065E371 /* RXWarningViewController.m */,
 				BC21DC93214206640065E371 /* RXQueryResultViewController.h */,
 				BC21DC94214206640065E371 /* RXQueryResultViewController.m */,
+				57756AFE2142130F007A9B02 /* XYShowScanViewController.h */,
+				57756AFF2142130F007A9B02 /* XYShowScanViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -561,6 +587,7 @@
 				BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */,
 				BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */,
 				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
+				57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */,
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
 				57842A352140BB53006DF676 /* UIImage+XYColorString.m in Sources */,
 				BC3A137A21411567002F450C /* RXScanRecord.m in Sources */,
@@ -570,6 +597,7 @@
 				8B223ECE213D638E007B8344 /* AppDelegate.m in Sources */,
 				57842A302140BB0E006DF676 /* XYNavigationViewController.m in Sources */,
 				57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */,
+				57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */,
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
 				BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */,
