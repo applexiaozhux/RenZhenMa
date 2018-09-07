@@ -20,14 +20,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="285.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wlw-b8-CRu">
-                        <rect key="frame" x="100" y="15" width="120" height="120"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlacehold" translatesAutoresizingMaskIntoConstraints="NO" id="wlw-b8-CRu">
+                        <rect key="frame" x="100" y="15" width="120" height="106"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="wlw-b8-CRu" secondAttribute="height" multiplier="1:1" id="jmb-4V-dF0"/>
+                            <constraint firstAttribute="width" secondItem="wlw-b8-CRu" secondAttribute="height" multiplier="240:212" id="jmb-4V-dF0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发认真码假发" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4R-QF-4NN">
-                        <rect key="frame" x="15" y="150" width="290" height="92.5"/>
+                        <rect key="frame" x="15" y="136" width="290" height="106.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,4 +57,7 @@
             <point key="canvasLocation" x="44" y="60"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="photoPlacehold" width="120" height="106"/>
+    </resources>
 </document>

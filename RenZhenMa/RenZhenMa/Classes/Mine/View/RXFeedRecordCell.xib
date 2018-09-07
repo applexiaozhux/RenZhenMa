@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +20,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="106.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mbY-vI-IEP">
-                        <rect key="frame" x="15" y="15" width="74" height="74"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlacehold" translatesAutoresizingMaskIntoConstraints="NO" id="mbY-vI-IEP">
+                        <rect key="frame" x="15" y="20.5" width="74" height="65.5"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="mbY-vI-IEP" secondAttribute="height" multiplier="240:212" id="DCK-07-Ral"/>
                             <constraint firstAttribute="width" constant="74" id="H0F-KI-0xb"/>
-                            <constraint firstAttribute="height" constant="74" id="wab-O8-SzW"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="号地块的进口量的蓝" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-S2-Byr">
@@ -53,6 +54,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="d9E-cB-oQg" firstAttribute="leading" secondItem="DsT-S2-Byr" secondAttribute="leading" id="20S-Jf-Qmx"/>
+                    <constraint firstItem="mbY-vI-IEP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4hH-uR-BYo"/>
                     <constraint firstItem="DsT-S2-Byr" firstAttribute="leading" secondItem="mbY-vI-IEP" secondAttribute="trailing" constant="15" id="6H3-3y-1fH"/>
                     <constraint firstItem="mbY-vI-IEP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="A4S-4E-gjh"/>
                     <constraint firstItem="qad-zm-1zX" firstAttribute="leading" secondItem="DsT-S2-Byr" secondAttribute="leading" id="BWB-hg-UYK"/>
@@ -62,7 +64,6 @@
                     <constraint firstItem="d9E-cB-oQg" firstAttribute="top" secondItem="qad-zm-1zX" secondAttribute="bottom" constant="5" id="T7g-qH-VLb"/>
                     <constraint firstItem="qad-zm-1zX" firstAttribute="top" secondItem="DsT-S2-Byr" secondAttribute="bottom" constant="5" id="f3l-It-ogY"/>
                     <constraint firstAttribute="bottom" secondItem="d9E-cB-oQg" secondAttribute="bottom" constant="15" id="iE8-f6-Un0"/>
-                    <constraint firstItem="mbY-vI-IEP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="l7b-3A-JSS"/>
                     <constraint firstItem="d9E-cB-oQg" firstAttribute="trailing" secondItem="DsT-S2-Byr" secondAttribute="trailing" id="wW7-1E-H4e"/>
                 </constraints>
             </tableViewCellContentView>
@@ -76,4 +77,7 @@
             <point key="canvasLocation" x="34" y="22.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="photoPlacehold" width="120" height="106"/>
+    </resources>
 </document>

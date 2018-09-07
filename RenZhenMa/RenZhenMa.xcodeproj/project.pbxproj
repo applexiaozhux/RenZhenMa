@@ -207,8 +207,8 @@
 		57842A1A2140B9CF006DF676 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				BC21DCA221420A730065E371 /* Model */,
 				57842A1B2140B9CF006DF676 /* Controller */,
-				BC21DC96214207900065E371 /* Model */,
 				BC21DC97214207900065E371 /* View */,
 			);
 			path = Scan;
@@ -358,13 +358,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		BC21DC96214207900065E371 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BC21DC97214207900065E371 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +369,13 @@
 				BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BC21DCA221420A730065E371 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC3460D721411C830059E38F /* Model */ = {
