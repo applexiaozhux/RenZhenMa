@@ -9,6 +9,8 @@
 #import "XYScanMainViewController.h"
 #import "XYCommonHeader.h"
 #import "XYShowScanViewController.h"
+#import "XYNavigationViewController.h"
+#import "RippleAnimationView.h"
 @interface XYScanMainViewController ()
 
 @property(nonatomic,retain)UIButton *scanButton;
@@ -33,11 +35,23 @@
 -(void)initSubViews{
     self.view.backgroundColor = [UIColor colorWithString:kThemeColorStr];
     
+    RippleAnimationView *viewA = [[RippleAnimationView alloc] initWithFrame:self.scanButton.bounds animationType:AnimationTypeWithBackground];
+    [self.view addSubview:viewA];
+    
     [self.view addSubview:self.scanButton];
     [self.scanButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
+//        make.centerX.equalTo(self.view);
+        make.left.equalTo(self.view).offset(100);
+        make.right.equalTo(self.view).offset(-100);
+        make.height.equalTo(self.scanButton.mas_width).multipliedBy(1.0f);
         make.centerY.equalTo(self.view).offset(-100);
     }];
+    
+    [viewA mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.scanButton);
+        make.width.height.equalTo(self.scanButton);
+    }];
+    
     
     [self.view addSubview:self.iconImageView];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,7 +66,10 @@
     
     XYShowScanViewController *scanVC = [[XYShowScanViewController alloc] init];
     
-    [self.navigationController pushViewController:scanVC animated:YES];
+    XYNavigationViewController *naviVC = [[XYNavigationViewController alloc] initWithRootViewController:scanVC];
+    [self presentViewController:naviVC animated:YES completion:nil];
+    
+
 }
 
 
@@ -62,7 +79,8 @@
 -(UIButton *)scanButton{
     if (!_scanButton) {
         _scanButton = [[UIButton alloc] init];
-        [_scanButton setImage:[UIImage imageNamed:@"scan_home"] forState:UIControlStateNormal];
+        [_scanButton setImage:[UIImage imageNamed:@"scan_home_t"] forState:UIControlStateNormal];
+        _scanButton.backgroundColor = [UIColor clearColor];
         [_scanButton addTarget:self action:@selector(scanButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _scanButton;

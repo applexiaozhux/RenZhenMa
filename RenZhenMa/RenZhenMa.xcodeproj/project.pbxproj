@@ -13,6 +13,7 @@
 		57756B15214221FE007A9B02 /* RXResultInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756B11214221FE007A9B02 /* RXResultInfoCell.m */; };
 		57756B16214221FE007A9B02 /* RXResultPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756B12214221FE007A9B02 /* RXResultPersonCell.m */; };
 		57756B17214221FE007A9B02 /* RXResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57756B13214221FE007A9B02 /* RXResultInfoCell.xib */; };
+		57756B5421425B53007A9B02 /* RippleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756B5321425B52007A9B02 /* RippleAnimationView.m */; };
 		57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A262140BA39006DF676 /* XYScanMainViewController.m */; };
 		57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A292140BA4C006DF676 /* XYMineMainViewController.m */; };
 		57842A302140BB0E006DF676 /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A2C2140BB0E006DF676 /* XYNavigationViewController.m */; };
@@ -75,6 +76,8 @@
 		57756B11214221FE007A9B02 /* RXResultInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXResultInfoCell.m; sourceTree = "<group>"; };
 		57756B12214221FE007A9B02 /* RXResultPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXResultPersonCell.m; sourceTree = "<group>"; };
 		57756B13214221FE007A9B02 /* RXResultInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RXResultInfoCell.xib; sourceTree = "<group>"; };
+		57756B5221425B52007A9B02 /* RippleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleAnimationView.h; sourceTree = "<group>"; };
+		57756B5321425B52007A9B02 /* RippleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleAnimationView.m; sourceTree = "<group>"; };
 		57842A252140BA39006DF676 /* XYScanMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYScanMainViewController.h; sourceTree = "<group>"; };
 		57842A262140BA39006DF676 /* XYScanMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYScanMainViewController.m; sourceTree = "<group>"; };
 		57842A282140BA4C006DF676 /* XYMineMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMineMainViewController.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				57756B0F214221FD007A9B02 /* RXResultPersonCell.h */,
 				57756B12214221FE007A9B02 /* RXResultPersonCell.m */,
 				57756B0E214221FD007A9B02 /* RXResultPersonCell.xib */,
+				57756B5221425B52007A9B02 /* RippleAnimationView.h */,
+				57756B5321425B52007A9B02 /* RippleAnimationView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
 				BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */,
 				57756B16214221FE007A9B02 /* RXResultPersonCell.m in Sources */,
+				57756B5421425B53007A9B02 /* RippleAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,7 +806,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NJZFZ43S58;
+				DEVELOPMENT_TEAM = 3MZD3465LC;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
@@ -821,7 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NJZFZ43S58;
+				DEVELOPMENT_TEAM = 3MZD3465LC;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";

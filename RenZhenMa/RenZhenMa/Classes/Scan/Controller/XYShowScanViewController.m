@@ -8,9 +8,11 @@
 
 #import "XYShowScanViewController.h"
 #import "XYZQRScanView.h"
+#import "XYCommonHeader.h"
+
 @interface XYShowScanViewController ()<XYZQRScanDelegate>
 @property (nonatomic ,strong) XYZQRScanView *scanView;
-//@property (nonatomic ,strong) UIImagePickerController *imagePicker;
+
 @end
 
 @implementation XYShowScanViewController
@@ -31,12 +33,25 @@
     
     [self.view addSubview:self.scanView];
     [self.scanView startScanning];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    UIImage *leftImage = [[UIImage imageNamed:@"guanbi"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:leftImage style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonClick)];
+    
+}
+
+-(void)leftBarButtonClick{
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 
 #pragma mark - scanViewDelegate
 - (void)scanView:(XYZQRScanView *)scanView pickUpMessage:(NSString *)message{
     [scanView stopScanning];
+    NSLog(@"%@",message);
+    
     //    [self showAlert:message action:^{
     //        [scanView startScanning];
     //    }];
@@ -48,6 +63,8 @@
     if (!_scanView) {
         _scanView = [[XYZQRScanView alloc]initWithFrame:self.view.bounds];
         _scanView.delegate = self;
+        _scanView.scanLineColor = [UIColor colorWithString:kThemeColorStr];
+        _scanView.cornerLineColor = [UIColor colorWithString:kThemeColorStr];
         _scanView.showBorderLine = YES;
     }
     return _scanView;
