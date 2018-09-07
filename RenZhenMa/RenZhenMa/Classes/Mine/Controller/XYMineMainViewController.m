@@ -32,23 +32,11 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     
     self.title = @"我的";
     _listArr = [NSMutableArray array];
-    [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"mine_settings"},@{@"name":@"反馈记录",@"icon":@"mine_settings"},@{@"name":@"意见反馈",@"icon":@"mine_settings"},@{@"name":@"设置",@"icon":@"mine_settings"}]];
+    [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"jilu"},@{@"name":@"反馈记录",@"icon":@"menu"},@{@"name":@"意见反馈",@"icon":@"jainyi"},@{@"name":@"设置",@"icon":@"set"}]];
     [self initView];
     
 }
 
-
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    XYNavigationViewController *naviVC = (XYNavigationViewController *)self.navigationController;
-//    [naviVC showShadowImageView:NO];
-//}
-//
-//-(void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:animated];
-//    XYNavigationViewController *naviVC = (XYNavigationViewController *)self.navigationController;
-//    [naviVC showShadowImageView:YES];
-//}
 
 -(void)initView{
     
@@ -57,7 +45,7 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [self.view addSubview:headView];
     
     UIImageView *iconImg = [[UIImageView alloc] init];
-    [iconImg setImage:[UIImage imageNamed:@"mine_settings"]];
+    [iconImg setImage:[UIImage imageNamed:@"avatar_man"]];
     [headView addSubview:iconImg];
     iconImg.layer.masksToBounds = YES;
     iconImg.layer.cornerRadius = SCALE375_WIDTH(50)/2;
