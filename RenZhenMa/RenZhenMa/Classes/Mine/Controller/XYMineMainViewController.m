@@ -74,6 +74,18 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
         make.height.equalTo(@SCALE375_WIDTH(15));
     }];
     
+    UIButton *headBtn = [[UIButton alloc] init];
+    headBtn.backgroundColor = [UIColor clearColor];
+    [headBtn addTarget:self action:@selector(headBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [headView addSubview:headBtn];
+    
+    [headBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(iconImg.mas_left);
+        make.right.equalTo(iconImg.mas_right);
+        make.top.equalTo(iconImg.mas_top);
+        make.bottom.equalTo(nameLab.mas_bottom);
+    }];
+    
     _tableView = ({
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
@@ -94,7 +106,12 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     underView.backgroundColor = [UIColor colorWithString:kThemeColorStr];
     [self.tableView addSubview:underView];
 }
-
+#pragma mark - 点击头像
+-(void)headBtnClick{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listArr.count;
@@ -111,9 +128,6 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-//    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
-//    [self.navigationController pushViewController:vc animated:YES];
 
 //    RXQueryResultViewController *vc = [[RXQueryResultViewController alloc] init];
 //    vc.hidesBottomBarWhenPushed = YES;
