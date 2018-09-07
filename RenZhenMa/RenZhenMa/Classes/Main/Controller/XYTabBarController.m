@@ -39,12 +39,10 @@
     XYScanMainViewController *scanVC = [[XYScanMainViewController alloc] init];
     [self addController:scanVC normalImageNamed:@"scan" selecteImageNamed:@"scan_pre" titile:@"扫一扫"];
     
-
-    
     XYMineMainViewController *mineVC = [[XYMineMainViewController alloc] init];
     [self addController:mineVC normalImageNamed:@"my" selecteImageNamed:@"my_pre" titile:@"我的"];
     self.tabBar.tintColor = [UIColor colorWithString:kThemeColorStr];
-    
+    self.tabBar.backgroundColor = [UIColor whiteColor];
 }
 
 

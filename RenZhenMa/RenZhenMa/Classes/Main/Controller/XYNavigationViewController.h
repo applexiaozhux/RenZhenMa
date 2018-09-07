@@ -10,4 +10,6 @@
 
 @interface XYNavigationViewController : UINavigationController
 
+-(void)showShadowImageView:(BOOL)isShow;
+
 @end
