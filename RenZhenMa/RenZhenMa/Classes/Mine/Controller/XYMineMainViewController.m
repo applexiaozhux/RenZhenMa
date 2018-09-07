@@ -13,7 +13,9 @@
 #import "RXFeedRecordViewController.h"
 #import "RXIdeaFeedbackViewController.h"
 #import "RXSettingViewController.h"
+#import "RXLoginViewController.h"
 #import "XYNavigationViewController.h"
+
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 
 @interface XYMineMainViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -107,23 +109,28 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (indexPath.row ==0) {//扫描记录
-        RXScanRecordViewController *vc = [[RXScanRecordViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 1) {//反馈记录
-        RXFeedRecordViewController *vc = [[RXFeedRecordViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 2) {//意见反馈
-        RXIdeaFeedbackViewController *vc = [[RXIdeaFeedbackViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{//设置
-        RXSettingViewController *vc = [[RXSettingViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+
+//    if (indexPath.row ==0) {//扫描记录
+//        RXScanRecordViewController *vc = [[RXScanRecordViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }else if (indexPath.row == 1) {//反馈记录
+//        RXFeedRecordViewController *vc = [[RXFeedRecordViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }else if (indexPath.row == 2) {//意见反馈
+//        RXIdeaFeedbackViewController *vc = [[RXIdeaFeedbackViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }else{//设置
+//        RXSettingViewController *vc = [[RXSettingViewController alloc] init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
