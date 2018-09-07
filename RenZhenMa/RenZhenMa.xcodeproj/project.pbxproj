@@ -25,6 +25,10 @@
 		BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC8E214203870065E371 /* RXScanCodeViewController.m */; };
 		BC21DC92214204B20065E371 /* RXWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC91214204B20065E371 /* RXWarningViewController.m */; };
 		BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC94214206640065E371 /* RXQueryResultViewController.m */; };
+		BC21DC9B214207DB0065E371 /* RXResultPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC99214207DB0065E371 /* RXResultPersonCell.m */; };
+		BC21DC9C214207DB0065E371 /* RXResultPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */; };
+		BC21DCA0214207EC0065E371 /* RXResultInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */; };
+		BC21DCA1214207EC0065E371 /* RXResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */; };
 		BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460D921411CF20059E38F /* RXScanRecordModel.m */; };
 		BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460DC21411E580059E38F /* RXFeedRecordModel.m */; };
 		BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13592140CC00002F450C /* RXNetWorkTool.m */; };
@@ -97,6 +101,12 @@
 		BC21DC91214204B20065E371 /* RXWarningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXWarningViewController.m; sourceTree = "<group>"; };
 		BC21DC93214206640065E371 /* RXQueryResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXQueryResultViewController.h; sourceTree = "<group>"; };
 		BC21DC94214206640065E371 /* RXQueryResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXQueryResultViewController.m; sourceTree = "<group>"; };
+		BC21DC98214207DB0065E371 /* RXResultPersonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXResultPersonCell.h; sourceTree = "<group>"; };
+		BC21DC99214207DB0065E371 /* RXResultPersonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXResultPersonCell.m; sourceTree = "<group>"; };
+		BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXResultPersonCell.xib; sourceTree = "<group>"; };
+		BC21DC9D214207EC0065E371 /* RXResultInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXResultInfoCell.h; sourceTree = "<group>"; };
+		BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXResultInfoCell.m; sourceTree = "<group>"; };
+		BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXResultInfoCell.xib; sourceTree = "<group>"; };
 		BC3460D821411CF20059E38F /* RXScanRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecordModel.h; sourceTree = "<group>"; };
 		BC3460D921411CF20059E38F /* RXScanRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecordModel.m; sourceTree = "<group>"; };
 		BC3460DB21411E580059E38F /* RXFeedRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFeedRecordModel.h; sourceTree = "<group>"; };
@@ -198,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				57842A1B2140B9CF006DF676 /* Controller */,
+				BC21DC96214207900065E371 /* Model */,
+				BC21DC97214207900065E371 /* View */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -346,6 +358,26 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		BC21DC96214207900065E371 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC21DC97214207900065E371 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC21DC9D214207EC0065E371 /* RXResultInfoCell.h */,
+				BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */,
+				BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */,
+				BC21DC98214207DB0065E371 /* RXResultPersonCell.h */,
+				BC21DC99214207DB0065E371 /* RXResultPersonCell.m */,
+				BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BC3460D721411C830059E38F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,7 +520,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC21DCA1214207EC0065E371 /* RXResultInfoCell.xib in Resources */,
 				8B223ED9213D6391007B8344 /* LaunchScreen.storyboard in Resources */,
+				BC21DC9C214207DB0065E371 /* RXResultPersonCell.xib in Resources */,
 				BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */,
 				8B223ED6213D6391007B8344 /* Assets.xcassets in Resources */,
 				BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */,
@@ -572,12 +606,14 @@
 				57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */,
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
+				BC21DCA0214207EC0065E371 /* RXResultInfoCell.m in Sources */,
 				BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */,
 				BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */,
 				BC3A137521410D84002F450C /* RXFeedRecordCell.m in Sources */,
 				BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */,
 				BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */,
 				BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */,
+				BC21DC9B214207DB0065E371 /* RXResultPersonCell.m in Sources */,
 				BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */,
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,

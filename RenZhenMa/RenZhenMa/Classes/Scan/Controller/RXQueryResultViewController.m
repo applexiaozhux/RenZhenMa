@@ -7,6 +7,9 @@
 //
 
 #import "RXQueryResultViewController.h"
+#import "XYCommonHeader.h"
+#import "RXResultInfoCell.h"
+#import "RXResultPersonCell.h"
 
 @interface RXQueryResultViewController ()
 

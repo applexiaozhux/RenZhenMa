@@ -7,6 +7,7 @@
 //
 
 #import "RXWarningViewController.h"
+#import "XYCommonHeader.h"
 
 @interface RXWarningViewController ()
 
