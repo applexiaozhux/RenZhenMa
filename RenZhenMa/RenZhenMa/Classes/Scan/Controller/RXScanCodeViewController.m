@@ -7,6 +7,7 @@
 //
 
 #import "RXScanCodeViewController.h"
+#import "XYCommonHeader.h"
 
 @interface RXScanCodeViewController ()
 

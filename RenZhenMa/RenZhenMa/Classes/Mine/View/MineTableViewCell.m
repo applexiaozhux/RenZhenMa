@@ -19,7 +19,7 @@
         [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(SCALE375_WIDTH(21));
             make.centerY.equalTo(self.contentView.mas_centerY);
-            make.width.mas_equalTo(SCALE375_WIDTH(27));
+            make.width.mas_equalTo(SCALE375_WIDTH(22));
             make.height.equalTo(self.imgView.mas_width);
         }];
         
