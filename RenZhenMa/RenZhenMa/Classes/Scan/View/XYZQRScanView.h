@@ -22,7 +22,7 @@
 @end
 @interface XYZQRScanView : UIView
 
-@property (nonatomic, weak) id<CDZQRScanDelegate> delegate;
+@property (nonatomic, weak) id<XYZQRScanDelegate> delegate;
 
 /**
  扫描区域的Frame，默认长宽为Frame的宽度3/4，位置为Frame中心

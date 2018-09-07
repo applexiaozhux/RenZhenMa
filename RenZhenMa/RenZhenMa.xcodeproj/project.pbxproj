@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756AFC21421151007A9B02 /* XYZQRScanView.m */; };
 		57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756AFF2142130F007A9B02 /* XYShowScanViewController.m */; };
+		57756B0A214219C0007A9B02 /* RXResultPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57756B04214219C0007A9B02 /* RXResultPersonCell.xib */; };
+		57756B0B214219C0007A9B02 /* RXResultInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756B05214219C0007A9B02 /* RXResultInfoCell.m */; };
+		57756B0C214219C0007A9B02 /* RXResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57756B08214219C0007A9B02 /* RXResultInfoCell.xib */; };
+		57756B0D214219C0007A9B02 /* RXResultPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57756B09214219C0007A9B02 /* RXResultPersonCell.m */; };
 		57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A262140BA39006DF676 /* XYScanMainViewController.m */; };
 		57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A292140BA4C006DF676 /* XYMineMainViewController.m */; };
 		57842A302140BB0E006DF676 /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57842A2C2140BB0E006DF676 /* XYNavigationViewController.m */; };
@@ -27,10 +31,6 @@
 		BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC8E214203870065E371 /* RXScanCodeViewController.m */; };
 		BC21DC92214204B20065E371 /* RXWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC91214204B20065E371 /* RXWarningViewController.m */; };
 		BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC94214206640065E371 /* RXQueryResultViewController.m */; };
-		BC21DC9B214207DB0065E371 /* RXResultPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC99214207DB0065E371 /* RXResultPersonCell.m */; };
-		BC21DC9C214207DB0065E371 /* RXResultPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */; };
-		BC21DCA0214207EC0065E371 /* RXResultInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */; };
-		BC21DCA1214207EC0065E371 /* RXResultInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */; };
 		BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460D921411CF20059E38F /* RXScanRecordModel.m */; };
 		BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460DC21411E580059E38F /* RXFeedRecordModel.m */; };
 		BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13592140CC00002F450C /* RXNetWorkTool.m */; };
@@ -69,6 +69,12 @@
 		57756AFC21421151007A9B02 /* XYZQRScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZQRScanView.m; sourceTree = "<group>"; };
 		57756AFE2142130F007A9B02 /* XYShowScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYShowScanViewController.h; sourceTree = "<group>"; };
 		57756AFF2142130F007A9B02 /* XYShowScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYShowScanViewController.m; sourceTree = "<group>"; };
+		57756B04214219C0007A9B02 /* RXResultPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RXResultPersonCell.xib; path = ../../../../../../../../Downloads/RXResultPersonCell.xib; sourceTree = "<group>"; };
+		57756B05214219C0007A9B02 /* RXResultInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXResultInfoCell.m; path = ../../../../../../../../Downloads/RXResultInfoCell.m; sourceTree = "<group>"; };
+		57756B06214219C0007A9B02 /* RXResultPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXResultPersonCell.h; path = ../../../../../../../../Downloads/RXResultPersonCell.h; sourceTree = "<group>"; };
+		57756B07214219C0007A9B02 /* RXResultInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXResultInfoCell.h; path = ../../../../../../../../Downloads/RXResultInfoCell.h; sourceTree = "<group>"; };
+		57756B08214219C0007A9B02 /* RXResultInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RXResultInfoCell.xib; path = ../../../../../../../../Downloads/RXResultInfoCell.xib; sourceTree = "<group>"; };
+		57756B09214219C0007A9B02 /* RXResultPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXResultPersonCell.m; path = ../../../../../../../../Downloads/RXResultPersonCell.m; sourceTree = "<group>"; };
 		57842A252140BA39006DF676 /* XYScanMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYScanMainViewController.h; sourceTree = "<group>"; };
 		57842A262140BA39006DF676 /* XYScanMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYScanMainViewController.m; sourceTree = "<group>"; };
 		57842A282140BA4C006DF676 /* XYMineMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMineMainViewController.h; sourceTree = "<group>"; };
@@ -107,12 +113,6 @@
 		BC21DC91214204B20065E371 /* RXWarningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXWarningViewController.m; sourceTree = "<group>"; };
 		BC21DC93214206640065E371 /* RXQueryResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXQueryResultViewController.h; sourceTree = "<group>"; };
 		BC21DC94214206640065E371 /* RXQueryResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXQueryResultViewController.m; sourceTree = "<group>"; };
-		BC21DC98214207DB0065E371 /* RXResultPersonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXResultPersonCell.h; sourceTree = "<group>"; };
-		BC21DC99214207DB0065E371 /* RXResultPersonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXResultPersonCell.m; sourceTree = "<group>"; };
-		BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXResultPersonCell.xib; sourceTree = "<group>"; };
-		BC21DC9D214207EC0065E371 /* RXResultInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXResultInfoCell.h; sourceTree = "<group>"; };
-		BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXResultInfoCell.m; sourceTree = "<group>"; };
-		BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXResultInfoCell.xib; sourceTree = "<group>"; };
 		BC3460D821411CF20059E38F /* RXScanRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecordModel.h; sourceTree = "<group>"; };
 		BC3460D921411CF20059E38F /* RXScanRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecordModel.m; sourceTree = "<group>"; };
 		BC3460DB21411E580059E38F /* RXFeedRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFeedRecordModel.h; sourceTree = "<group>"; };
@@ -197,6 +197,12 @@
 			children = (
 				57756AFB21421151007A9B02 /* XYZQRScanView.h */,
 				57756AFC21421151007A9B02 /* XYZQRScanView.m */,
+				57756B07214219C0007A9B02 /* RXResultInfoCell.h */,
+				57756B05214219C0007A9B02 /* RXResultInfoCell.m */,
+				57756B08214219C0007A9B02 /* RXResultInfoCell.xib */,
+				57756B06214219C0007A9B02 /* RXResultPersonCell.h */,
+				57756B09214219C0007A9B02 /* RXResultPersonCell.m */,
+				57756B04214219C0007A9B02 /* RXResultPersonCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,26 +388,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		BC21DC97214207900065E371 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BC21DC9D214207EC0065E371 /* RXResultInfoCell.h */,
-				BC21DC9E214207EC0065E371 /* RXResultInfoCell.m */,
-				BC21DC9F214207EC0065E371 /* RXResultInfoCell.xib */,
-				BC21DC98214207DB0065E371 /* RXResultPersonCell.h */,
-				BC21DC99214207DB0065E371 /* RXResultPersonCell.m */,
-				BC21DC9A214207DB0065E371 /* RXResultPersonCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BC21DCA221420A730065E371 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BC3460D721411C830059E38F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,9 +530,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC21DCA1214207EC0065E371 /* RXResultInfoCell.xib in Resources */,
+				57756B0C214219C0007A9B02 /* RXResultInfoCell.xib in Resources */,
 				8B223ED9213D6391007B8344 /* LaunchScreen.storyboard in Resources */,
-				BC21DC9C214207DB0065E371 /* RXResultPersonCell.xib in Resources */,
+				57756B0A214219C0007A9B02 /* RXResultPersonCell.xib in Resources */,
 				BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */,
 				8B223ED6213D6391007B8344 /* Assets.xcassets in Resources */,
 				BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */,
@@ -618,6 +604,7 @@
 			files = (
 				BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */,
 				BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */,
+				57756B0B214219C0007A9B02 /* RXResultInfoCell.m in Sources */,
 				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
 				57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */,
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
@@ -632,18 +619,17 @@
 				57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */,
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
-				BC21DCA0214207EC0065E371 /* RXResultInfoCell.m in Sources */,
 				BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */,
 				BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */,
 				BC3A137521410D84002F450C /* RXFeedRecordCell.m in Sources */,
 				BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */,
 				BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */,
 				BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */,
-				BC21DC9B214207DB0065E371 /* RXResultPersonCell.m in Sources */,
 				BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */,
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
 				BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */,
+				57756B0D214219C0007A9B02 /* RXResultPersonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
