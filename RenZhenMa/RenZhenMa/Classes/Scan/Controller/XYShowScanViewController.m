@@ -52,6 +52,12 @@
     [scanView stopScanning];
     NSLog(@"%@",message);
     
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.scanView startScanning];
+    }];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
     //    [self showAlert:message action:^{
     //        [scanView startScanning];
     //    }];
