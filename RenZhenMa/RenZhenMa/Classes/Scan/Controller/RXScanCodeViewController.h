@@ -10,4 +10,7 @@
 
 @interface RXScanCodeViewController : UIViewController
 
+
+@property(nonatomic,copy)NSString *valueStr;
+
 @end

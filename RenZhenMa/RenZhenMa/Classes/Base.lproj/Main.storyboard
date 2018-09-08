@@ -243,6 +243,9 @@
                                         <state key="normal" title="获取验证码">
                                             <color key="titleColor" red="0.0" green="0.66274509800000003" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="getCodeButtonClick" destination="J8H-J5-8dI" eventType="touchUpInside" id="nOm-MW-8dU"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Y9-6b-56e">
                                         <rect key="frame" x="274" y="0.0" width="1" height="45"/>
@@ -288,6 +291,9 @@
                                 <state key="normal" title="立即查询">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="quaryButtonClick" destination="J8H-J5-8dI" eventType="touchUpInside" id="lZ8-EI-rsY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为了防止恶意查询，最大程度的保障产品的正品性，请您输入手机号，获取验证码后进行产品真伪及更多产品信息的查询，验证码10分钟内有效，如需在此获取请10分钟以后" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmf-Eh-mQs">
                                 <rect key="frame" x="15" y="35" width="345" height="72"/>
@@ -310,6 +316,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nmu-WG-pN2"/>
                     </view>
+                    <connections>
+                        <outlet property="codeTextField" destination="THg-f2-Khv" id="pXH-As-sXa"/>
+                        <outlet property="phoneTextField" destination="7T4-SL-6M9" id="s05-f1-VWF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L20-no-apZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

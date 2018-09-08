@@ -9,7 +9,7 @@
 #import "XYShowScanViewController.h"
 #import "XYZQRScanView.h"
 #import "XYCommonHeader.h"
-
+#import "RXScanCodeViewController.h"
 @interface XYShowScanViewController ()<XYZQRScanDelegate>
 @property (nonatomic ,strong) XYZQRScanView *scanView;
 
@@ -46,9 +46,26 @@
     
 }
 
--(void)uploadData{
+-(void)uploadData:(NSString *)urlPath{
     
-    
+    if (![XYUserInfoManager isLogin]) {
+        [SVProgressHUD showErrorWithStatus:@"请您先登录"];
+        return;
+    }
+    if ([urlPath hasPrefix:@"http://www.renzhenma.com"]&&[urlPath containsString:@"rzm="]) {
+        NSArray *array = [urlPath componentsSeparatedByString:@"="];
+        if (array.count == 2) {
+            
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            RXScanCodeViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXScanCodeViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            
+        }
+    }else{
+        
+        
+    }
     
     
 }
@@ -59,12 +76,13 @@
     [scanView stopScanning];
     NSLog(@"%@",message);
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.scanView startScanning];
-    }];
-    [alertController addAction:action];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self uploadData:message];
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self.scanView startScanning];
+//    }];
+//    [alertController addAction:action];
+//    [self presentViewController:alertController animated:YES completion:nil];
     //    [self showAlert:message action:^{
     //        [scanView startScanning];
     //    }];
