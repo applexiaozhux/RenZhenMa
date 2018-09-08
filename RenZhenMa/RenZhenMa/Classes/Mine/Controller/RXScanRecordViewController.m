@@ -55,7 +55,11 @@
 //获取扫描记录调用接口（扫描记录页） code为1时，把info数据显示出来。 code不为1，根据返回结果message给出提示
 -(void)loadData{
     [self.listArr removeAllObjects];
-    NSDictionary *dic=@{@"wxid":@"2",@"page":@"",@"num":@"",@"token":@""};
+    if (![XYUserInfoManager isLogin]) {
+        return;
+    }
+    XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@"1",@"num":@"10",@"token":userinfo.token};
     
     [[XYNetworkManager defaultManager] post:@"scanRecord" params:dic success:^(id response, id responseObject) {
         NSArray *data = (NSArray *)response;
@@ -63,6 +67,7 @@
             RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];
         }
+        [self.tableView reloadData];
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];

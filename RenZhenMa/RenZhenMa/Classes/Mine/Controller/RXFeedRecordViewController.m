@@ -54,7 +54,11 @@
 -(void)loadData{
     [self.listArr removeAllObjects];
 
-    NSDictionary *dic=@{@"wxid":@"2",@"page":@"",@"num":@"",@"token":@""};
+    if (![XYUserInfoManager isLogin]) {
+        return;
+    }
+    XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@"1",@"num":@"10",@"token":userinfo.token};
 
     [[XYNetworkManager defaultManager] post:@"getSuggest" params:dic success:^(id response, id responseObject) {
         NSArray *data = (NSArray *)response;
@@ -62,6 +66,7 @@
             RXFeedRecordModel *model = [RXFeedRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];
         }
+        [self.tableView reloadData];
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
@@ -81,13 +86,13 @@
     cell.titleLab.text = model.sinfo;
     NSString *str = @"";
     if (model.status&&[model.status isEqualToString:@"1"]) {
-        str = [str stringByAppendingString:@"未读"];
+        str = @"未读   ";
     }else if (model.status&&[model.status isEqualToString:@"3"]) {
-        str = [str stringByAppendingString:@"已读"];
+        str = @"已读   ";
     }else if (model.status&&[model.status isEqualToString:@"4"]) {
-        str = [str stringByAppendingString:@"已回复"];
+        str = @"已回复   ";
     }
-    str = model.times;
+    str = [str stringByAppendingString:model.times];
     cell.timeLab.text = str;
     cell.replyLab.text = @"回到家萨克的落地的";
 

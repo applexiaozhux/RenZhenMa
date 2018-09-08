@@ -13,6 +13,9 @@
 
 
 @interface RXIdeaFeedbackViewController ()<YYTextViewDelegate>
+{
+    UIButton *submitBtn;
+}
 @property (nonatomic,strong)NSMutableAttributedString * allLengthString;
 @property (nonatomic,assign) NSInteger length;
 @property (nonatomic,assign) NSInteger allLength;
@@ -82,13 +85,15 @@
     _wordsLabel.attributedText = string;
     [self.view addSubview:_wordsLabel];
 
-    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCALE375_WIDTH(15), MaxY(whiteView)+SCALE375_WIDTH(45), SCREEN_WIDTH-SCALE375_WIDTH(30), SCALE375_WIDTH(45))];
+    submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCALE375_WIDTH(15), MaxY(whiteView)+SCALE375_WIDTH(45), SCREEN_WIDTH-SCALE375_WIDTH(30), SCALE375_WIDTH(45))];
     submitBtn.backgroundColor = [UIColor colorWithString:kThemeColorStr];
     [submitBtn setTitle:@"立即提交" forState:UIControlStateNormal];
+    
     [submitBtn.titleLabel setFont:[UIFont systemFontOfSize:SCALE375_WIDTH(17)]];
     [submitBtn addTarget:self action:@selector(submitBtnClick) forControlEvents:UIControlEventTouchUpInside];
     submitBtn.layer.masksToBounds = YES;
     submitBtn.layer.cornerRadius = SCALE375_WIDTH(5);
+    submitBtn.enabled = NO;
     [self.view addSubview:submitBtn];
 }
 #pragma mark - YYTextViewDelegate
@@ -108,9 +113,17 @@
         [string addAttribute:NSParagraphStyleAttributeName value:_style range:NSMakeRange(0, string.length)];
         _wordsLabel.attributedText = string;
     }
+    
 }
 
 - (BOOL)textView:(YYTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    NSString *content = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    if (content.length==0) {
+        submitBtn.enabled = NO;
+    }else{
+        submitBtn.enabled = YES;
+    }
     if (!self.view.userInteractionEnabled) {
         return YES;
     }
@@ -127,16 +140,29 @@
     }else if (str.length != 0){
         [str deleteCharactersInRange:range];
     }
+    
     return YES;
 }
 #pragma mark -  点击提交
 //意见反馈调用接口（意见反馈页） 1、code为1时，提示成功。然后跳转到我的页 2、code不为1，根据返回结果message给出提示
 -(void)submitBtnClick{
-    NSDictionary *dic=@{@"info":@"",@"wxid":@"",@"token":@""};
+    
+    if (![XYUserInfoManager isLogin]) {
+        return;
+    }
+    NSString *str = self.writeView.text;
+    if (str.length==0) {
+        return;
+    }
+    XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"token":userinfo.token,@"info":@"str"};
+
     [[XYNetworkManager defaultManager] post:@"suggest" params:dic success:^(id response, id responseObject) {
-        [self.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:self.navigationController afterDelay:1.5];
-    } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
+        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
     }];
    
 }
