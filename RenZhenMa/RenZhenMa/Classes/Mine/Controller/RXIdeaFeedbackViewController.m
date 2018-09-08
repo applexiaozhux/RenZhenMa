@@ -133,19 +133,12 @@
 //意见反馈调用接口（意见反馈页） 1、code为1时，提示成功。然后跳转到我的页 2、code不为1，根据返回结果message给出提示
 -(void)submitBtnClick{
     NSDictionary *dic=@{@"info":@"",@"wxid":@"",@"token":@""};
-    
-    [RXNetWorkTool POST:BASE_URL(@"suggest") parameters:dic progress:nil success:^(id  _Nonnull responseObject) {
-        if ([[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"code"]] isEqualToString:@"1"]) {
-            
-//            [Tool showMBProgressHUDText:self->HUD Message:@"提交成功！" Time:2.0 addView:self.view FrameY:0];
-            [self.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:self.navigationController afterDelay:1.5];
-            
-        }else{
-            
-        }
-    } failure:^(NSError * _Nonnull error) {
+    [[XYNetworkManager defaultManager] post:@"suggest" params:dic success:^(id response, id responseObject) {
+        [self.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:self.navigationController afterDelay:1.5];
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+   
 }
 
 - (void)didReceiveMemoryWarning {

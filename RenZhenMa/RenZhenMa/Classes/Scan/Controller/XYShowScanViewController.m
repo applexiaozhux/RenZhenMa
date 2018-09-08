@@ -46,6 +46,13 @@
     
 }
 
+-(void)uploadData{
+    
+    
+    
+    
+}
+
 
 #pragma mark - scanViewDelegate
 - (void)scanView:(XYZQRScanView *)scanView pickUpMessage:(NSString *)message{

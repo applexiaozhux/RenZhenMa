@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initSubViews];
+    [self refreshToken];
     self.delegate = self;
 
 }
@@ -45,6 +46,26 @@
     self.tabBar.backgroundColor = [UIColor whiteColor];
 }
 
+
+-(void)refreshToken{
+    
+    if ([XYUserInfoManager isLogin]) {
+        XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
+        NSString *signature = [NSString stringWithFormat:@"%@%@",userInfo.uid,userInfo.token];
+        NSDictionary *params = @{@"wxid":userInfo.uid,@"token":userInfo.token,@"signature":[signature md5]};
+        
+        [[XYNetworkManager defaultManager] post:@"getToken" params:params success:^(id response, id responseObject) {
+            NSDictionary *dic = (NSDictionary *)response;
+            userInfo.token = dic[@"token"];
+            [XYUserInfoManager shareInfoManager].userInfo = userInfo;
+            
+        } fail:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+        
+    }
+
+}
 
 -(void)showLoginViewController{
 //    if ([XYUserInfoManager sharedUserInfoManager].userInfo.isLogin) {

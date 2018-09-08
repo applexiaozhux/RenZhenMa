@@ -8,7 +8,11 @@
 
 #import "XYConst.h"
 #import "ColorUtils.h"
-#import "RXNetWorkTool.h"
 #import <Masonry/Masonry.h>
 #import "YYKit.h"
-
+#import <SVProgressHUD.h>
+#import "XYUserInfoManager.h"
+#import "XYUserInfoModel.h"
+#import "XYNetworkManager.h"
+#import <UIImageView+WebCache.h>
+#import "NSString+MD5.h"

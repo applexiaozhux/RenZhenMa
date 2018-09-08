@@ -8,20 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-#pragma mark - BaseURL
+#ifdef DEBUG
+//测试环境
+static const NSString *kBaseURL = @"https://api.renzhenma.com.cn/index.php/index/index";
 
-#define  BASE_URL(path)      [NSString stringWithFormat:@"https://api.renzhenma.com.cn/index.php/index/index/%@",path]
 
-//#ifdef DEBUG
-////测试环境
-//static const NSString *baseURL = @"http://api.nongji360.com/";
-//
-//
-//#else
-////生产环境
-//static const NSString *baseURL = @"http://api.nongji360.com/";
-//#endif
+#else
+//生产环境
+static const NSString *kBaseURL = @"https://api.renzhenma.com.cn/index.php/index/index";
+#endif
 
+//本地用户信息
+static NSString *kUserInfoData = @"kUserInfoData";
+//登录成功通知
+static NSString *kLoginSuccess = @"kLoginSuccess";
+//退出登录通知
+static NSString *kLogoutSuccess = @"kLogoutSuccess";
 
 static NSString *kThemeColorStr = @"#00a950"; //主题颜色
 

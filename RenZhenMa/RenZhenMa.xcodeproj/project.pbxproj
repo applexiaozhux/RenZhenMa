@@ -34,8 +34,6 @@
 		BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC94214206640065E371 /* RXQueryResultViewController.m */; };
 		BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460D921411CF20059E38F /* RXScanRecordModel.m */; };
 		BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3460DC21411E580059E38F /* RXFeedRecordModel.m */; };
-		BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13592140CC00002F450C /* RXNetWorkTool.m */; };
-		BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A135C2140CC27002F450C /* RXNetManager.m */; };
 		BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13602140CEDB002F450C /* MineTableViewCell.m */; };
 		BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A13642140FFBD002F450C /* RXScanRecordViewController.m */; };
 		BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A136721410008002F450C /* RXFeedRecordViewController.m */; };
@@ -46,6 +44,10 @@
 		BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137421410D84002F450C /* RXFeedRecordCell.xib */; };
 		BC3A137A21411567002F450C /* RXScanRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A137821411567002F450C /* RXScanRecord.m */; };
 		BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137921411567002F450C /* RXScanRecord.xib */; };
+		BCFA4B91214357A4000E6ACB /* XYUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */; };
+		BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */; };
+		BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */; };
+		BCFA4BA12143752C000E6ACB /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BA02143752C000E6ACB /* NSString+MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,10 +122,6 @@
 		BC3460D921411CF20059E38F /* RXScanRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecordModel.m; sourceTree = "<group>"; };
 		BC3460DB21411E580059E38F /* RXFeedRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXFeedRecordModel.h; sourceTree = "<group>"; };
 		BC3460DC21411E580059E38F /* RXFeedRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXFeedRecordModel.m; sourceTree = "<group>"; };
-		BC3A13582140CC00002F450C /* RXNetWorkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXNetWorkTool.h; sourceTree = "<group>"; };
-		BC3A13592140CC00002F450C /* RXNetWorkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXNetWorkTool.m; sourceTree = "<group>"; };
-		BC3A135B2140CC27002F450C /* RXNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXNetManager.h; sourceTree = "<group>"; };
-		BC3A135C2140CC27002F450C /* RXNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXNetManager.m; sourceTree = "<group>"; };
 		BC3A135F2140CEDB002F450C /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		BC3A13602140CEDB002F450C /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		BC3A13632140FFBD002F450C /* RXScanRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecordViewController.h; sourceTree = "<group>"; };
@@ -142,6 +140,14 @@
 		BC3A137721411567002F450C /* RXScanRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecord.h; sourceTree = "<group>"; };
 		BC3A137821411567002F450C /* RXScanRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecord.m; sourceTree = "<group>"; };
 		BC3A137921411567002F450C /* RXScanRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXScanRecord.xib; sourceTree = "<group>"; };
+		BCFA4B8F214357A4000E6ACB /* XYUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoManager.h; sourceTree = "<group>"; };
+		BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoManager.m; sourceTree = "<group>"; };
+		BCFA4B9221435806000E6ACB /* XYUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoModel.h; sourceTree = "<group>"; };
+		BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoModel.m; sourceTree = "<group>"; };
+		BCFA4B9921435F36000E6ACB /* XYNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYNetworkManager.h; sourceTree = "<group>"; };
+		BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNetworkManager.m; sourceTree = "<group>"; };
+		BCFA4B9F2143752C000E6ACB /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		BCFA4BA02143752C000E6ACB /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		E934B21F13BD7DB3050D0A85 /* Pods-RenZhenMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,13 +194,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		57756AF921421122007A9B02 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		57756AFA21421122007A9B02 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +214,7 @@
 		57842A182140B982006DF676 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BCFA4B8E2143578C000E6ACB /* Model */,
 				57842A1E2140B9D9006DF676 /* Controller */,
 				57842A392140BD07006DF676 /* XYConst.h */,
 				57842A3D2140C25C006DF676 /* XYCommonHeader.h */,
@@ -240,7 +240,6 @@
 		57842A1A2140B9CF006DF676 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
-				57756AF921421122007A9B02 /* Model */,
 				57756AFA21421122007A9B02 /* View */,
 				57842A1B2140B9CF006DF676 /* Controller */,
 			);
@@ -332,6 +331,8 @@
 				57842A362140BB66006DF676 /* ColorUtils.m */,
 				57842A332140BB53006DF676 /* UIImage+XYColorString.h */,
 				57842A342140BB53006DF676 /* UIImage+XYColorString.m */,
+				BCFA4B9F2143752C000E6ACB /* NSString+MD5.h */,
+				BCFA4BA02143752C000E6ACB /* NSString+MD5.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -407,10 +408,7 @@
 		BC3A134D2140C9A3002F450C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				BC3A13582140CC00002F450C /* RXNetWorkTool.h */,
-				BC3A13592140CC00002F450C /* RXNetWorkTool.m */,
-				BC3A135B2140CC27002F450C /* RXNetManager.h */,
-				BC3A135C2140CC27002F450C /* RXNetManager.m */,
+				BCFA4B9521435ED8000E6ACB /* XYNetworking */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -428,6 +426,26 @@
 				BC3A137921411567002F450C /* RXScanRecord.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BCFA4B8E2143578C000E6ACB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCFA4B8F214357A4000E6ACB /* XYUserInfoManager.h */,
+				BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */,
+				BCFA4B9221435806000E6ACB /* XYUserInfoModel.h */,
+				BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCFA4B9521435ED8000E6ACB /* XYNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				BCFA4B9921435F36000E6ACB /* XYNetworkManager.h */,
+				BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */,
+			);
+			path = XYNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +630,7 @@
 				57756B15214221FE007A9B02 /* RXResultInfoCell.m in Sources */,
 				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
 				57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */,
+				BCFA4B91214357A4000E6ACB /* XYUserInfoManager.m in Sources */,
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
 				57842A352140BB53006DF676 /* UIImage+XYColorString.m in Sources */,
 				BC3A137A21411567002F450C /* RXScanRecord.m in Sources */,
@@ -623,17 +642,18 @@
 				57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */,
 				57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */,
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
+				BCFA4BA12143752C000E6ACB /* NSString+MD5.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
 				BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */,
 				BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */,
+				BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */,
 				BC3A137521410D84002F450C /* RXFeedRecordCell.m in Sources */,
-				BC3A135A2140CC00002F450C /* RXNetWorkTool.m in Sources */,
 				BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */,
 				BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */,
+				BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */,
 				BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */,
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
-				BC3A135D2140CC27002F450C /* RXNetManager.m in Sources */,
 				57756B16214221FE007A9B02 /* RXResultPersonCell.m in Sources */,
 				57756B5421425B53007A9B02 /* RippleAnimationView.m in Sources */,
 			);
@@ -806,7 +826,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MZD3465LC;
+				DEVELOPMENT_TEAM = NJZFZ43S58;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
@@ -827,7 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3MZD3465LC;
+				DEVELOPMENT_TEAM = NJZFZ43S58;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";

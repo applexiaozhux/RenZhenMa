@@ -15,7 +15,7 @@
 #import "RXIdeaFeedbackViewController.h"
 #import "RXSettingViewController.h"
 #import "RXLoginViewController.h"
-
+#import "XYNavigationViewController.h"
 #import "RXQueryResultViewController.h"
 
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
@@ -23,7 +23,8 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 @interface XYMineMainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listArr;
-
+@property(nonatomic,retain) UILabel *nameLab;
+@property(nonatomic,retain) UIImageView *iconImg;
 @end
 
 @implementation XYMineMainViewController
@@ -38,7 +39,7 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     _listArr = [NSMutableArray array];
     [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"jilu"},@{@"name":@"反馈记录",@"icon":@"menu"},@{@"name":@"意见反馈",@"icon":@"jainyi"},@{@"name":@"设置",@"icon":@"set"}]];
     [self initView];
-    
+    [self configureNotification];
 }
 
 
@@ -48,28 +49,28 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [headView setBackgroundColor:[UIColor colorWithString:kThemeColorStr]];
     [self.view addSubview:headView];
     
-    UIImageView *iconImg = [[UIImageView alloc] init];
-    [iconImg setImage:[UIImage imageNamed:@"avatar_man"]];
-    [headView addSubview:iconImg];
-    iconImg.layer.masksToBounds = YES;
-    iconImg.layer.cornerRadius = SCALE375_WIDTH(50)/2;
-    [iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(@SCALE375_WIDTH(50));
-        make.height.equalTo(@SCALE375_WIDTH(50));
+    self.iconImg = [[UIImageView alloc] init];
+    [self.iconImg setImage:[UIImage imageNamed:@"user2"]];
+    [headView addSubview:self.iconImg];
+    self.iconImg.layer.masksToBounds = YES;
+    self.iconImg.layer.cornerRadius = SCALE375_WIDTH(80)/2;
+    [self.iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(@SCALE375_WIDTH(80));
+        make.height.equalTo(@SCALE375_WIDTH(80));
         make.centerY.equalTo(headView.mas_centerY).offset(-10);
         make.centerX.equalTo(headView.mas_centerX);
     }];
     
-    UILabel *nameLab = [[UILabel alloc] init];
-    nameLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
-    nameLab.textAlignment = NSTextAlignmentCenter;
-    nameLab.textColor = [UIColor whiteColor];
-    nameLab.text = @"测试";
-    [headView addSubview:nameLab];
+    self.nameLab = [[UILabel alloc] init];
+    self.nameLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
+    self.nameLab.textAlignment = NSTextAlignmentCenter;
+    self.nameLab.textColor = [UIColor whiteColor];
+    self.nameLab.text = @"登录";
+    [headView addSubview:self.nameLab];
     
-    [nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(headView.mas_left);
-        make.top.equalTo(iconImg.mas_bottom).offset(15);
+        make.top.equalTo(self.iconImg.mas_bottom).offset(15);
         make.right.equalTo(headView.mas_right);
         make.height.equalTo(@SCALE375_WIDTH(15));
     }];
@@ -80,10 +81,10 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [headView addSubview:headBtn];
     
     [headBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(iconImg.mas_left);
-        make.right.equalTo(iconImg.mas_right);
-        make.top.equalTo(iconImg.mas_top);
-        make.bottom.equalTo(nameLab.mas_bottom);
+        make.left.equalTo(self.iconImg.mas_left);
+        make.right.equalTo(self.iconImg.mas_right);
+        make.top.equalTo(self.iconImg.mas_top);
+        make.bottom.equalTo(self.nameLab.mas_bottom);
     }];
     
     _tableView = ({
@@ -105,12 +106,49 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     UIView *underView = [[UIView alloc] initWithFrame:CGRectMake(0, -300, SCREEN_WIDTH, 300)];
     underView.backgroundColor = [UIColor colorWithString:kThemeColorStr];
     [self.tableView addSubview:underView];
+    
+    
+    [self configureUserHeader];
 }
+
+-(void)configureNotification{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureUserHeader) name:kLogoutSuccess object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configureUserHeader) name:kLoginSuccess object:nil];
+}
+
+-(void)configureUserHeader{
+    
+    if ([XYUserInfoManager isLogin]) {
+        XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
+        self.nameLab.text = userInfo.nickName;
+        NSString *placeImageStr = @"avatar_man";
+        if ([userInfo.gender isEqualToString:@"2"]) {
+            placeImageStr = @"avatar_woman";
+        }
+        
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:userInfo.avatarUrl] placeholderImage:[UIImage imageNamed:placeImageStr]];
+        
+    }else{
+        self.nameLab.text = @"登录";
+        [self.iconImg setImage:[UIImage imageNamed:@"user2"]];\
+    }
+    
+}
+
+
 #pragma mark - 点击头像
 -(void)headBtnClick{
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if ([XYUserInfoManager isLogin]) {
+        
+    }else{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
+        XYNavigationViewController *naviVC = [[XYNavigationViewController alloc] initWithRootViewController:vc];
+        [self presentViewController:naviVC animated:YES completion:nil];
+    }
+    
 }
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -154,6 +192,9 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

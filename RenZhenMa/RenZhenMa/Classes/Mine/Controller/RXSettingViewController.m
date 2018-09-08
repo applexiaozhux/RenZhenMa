@@ -87,6 +87,8 @@
 
 -(void)logOutEvent{
     
+    [[XYUserInfoManager shareInfoManager] logOut];
+    [self.navigationController popViewControllerAnimated:YES];
    
 }
 - (void)didReceiveMemoryWarning {

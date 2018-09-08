@@ -57,22 +57,16 @@
     [self.listArr removeAllObjects];
     NSDictionary *dic=@{@"wxid":@"2",@"page":@"",@"num":@"",@"token":@""};
     
-    [RXNetWorkTool POST:BASE_URL(@"scanRecord") parameters:dic progress:nil success:^(id  _Nonnull responseObject) {
-        if ([[NSString stringWithFormat:@"%@",[responseObject objectForKey:@"code"]] isEqualToString:@"1"]) {
-            
-            NSArray *data = [responseObject objectForKey:@"info"];
-            for (NSDictionary *list in data) {
-                RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
-                [self.listArr addObject:model];
-            }
-            
-        }else{
-            NSString *messageStr = [responseObject objectForKey:@"message"];
-            
+    [[XYNetworkManager defaultManager] post:@"scanRecord" params:dic success:^(id response, id responseObject) {
+        NSArray *data = (NSArray *)response;
+        for (NSDictionary *list in data) {
+            RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
+            [self.listArr addObject:model];
         }
-    } failure:^(NSError * _Nonnull error) {
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+    
 }
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
