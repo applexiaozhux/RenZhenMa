@@ -14,9 +14,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
     _titleLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(14)];
+    _detailLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(12)];
     _timeLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(12)];
-    _replyLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
 
 }
 

@@ -6,90 +6,78 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="157" id="KGk-i7-Jjw" customClass="RXScanRecord">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="107" id="hk3-mb-9e9" customClass="RXScanRecord">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="156.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hk3-mb-9e9" id="fWr-Zz-w7O">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="106.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIY-ph-T6B">
-                        <rect key="frame" x="15" y="15" width="290" height="33.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlacehold" translatesAutoresizingMaskIntoConstraints="NO" id="NVU-yL-NRo">
+                        <rect key="frame" x="15" y="20.5" width="74" height="65.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="34" id="Z5l-Ta-wWE"/>
+                            <constraint firstAttribute="width" constant="74" id="yKW-Fb-Omj"/>
+                            <constraint firstAttribute="width" secondItem="NVU-yL-NRo" secondAttribute="height" multiplier="240:212" id="zir-jt-hiO"/>
                         </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="号地块的进口量的蓝" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1D-uk-J1T">
+                        <rect key="frame" x="104" y="15" width="201" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.22352941179999999" green="0.25098039220000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxN-UJ-T7F">
-                        <rect key="frame" x="15" y="58.5" width="290" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打电话肯定会的了解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-8r-yyP">
+                        <rect key="frame" x="104" y="71.5" width="201" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="BXw-co-aPA"/>
+                            <constraint firstAttribute="height" constant="20" id="HvA-NN-nQA"/>
                         </constraints>
-                        <attributedString key="attributedText">
-                            <fragment content="已回复">
-                                <attributes>
-                                    <color key="NSColor" red="0.0" green="0.66274509803921566" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" 2018-08-19 13:08">
-                                <attributes>
-                                    <color key="NSColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-Qd-fcl">
-                        <rect key="frame" x="15" y="88.5" width="290" height="53"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复 “大口径的辽阔的劳动纪律；到家了的角度来看电视的领导看见的快乐”" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIY-Dw-9gz">
-                                <rect key="frame" x="15" y="8" width="260" height="37"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.66274509803921566" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打电话肯定会的了解" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-6i-YFH">
+                        <rect key="frame" x="104" y="47" width="201" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="vIY-Dw-9gz" secondAttribute="bottom" constant="8" id="1uC-ei-u4q"/>
-                            <constraint firstItem="vIY-Dw-9gz" firstAttribute="top" secondItem="n6O-Qd-fcl" secondAttribute="top" constant="8" id="3C9-y7-eN6"/>
-                            <constraint firstItem="vIY-Dw-9gz" firstAttribute="leading" secondItem="n6O-Qd-fcl" secondAttribute="leading" constant="15" id="qqz-kB-52S"/>
-                            <constraint firstAttribute="trailing" secondItem="vIY-Dw-9gz" secondAttribute="trailing" constant="15" id="xuh-DM-ECh"/>
+                            <constraint firstAttribute="height" constant="20" id="AUD-Qd-iBX"/>
                         </constraints>
-                    </view>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sxN-UJ-T7F" secondAttribute="trailing" constant="15" id="0IK-Z9-HGc"/>
-                    <constraint firstItem="ZIY-ph-T6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="1kR-D4-a5k"/>
-                    <constraint firstItem="ZIY-ph-T6B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Br1-q5-V2j"/>
-                    <constraint firstAttribute="bottom" secondItem="n6O-Qd-fcl" secondAttribute="bottom" constant="15" id="KtR-se-gU5"/>
-                    <constraint firstAttribute="trailing" secondItem="ZIY-ph-T6B" secondAttribute="trailing" constant="15" id="SCG-dO-cRW"/>
-                    <constraint firstItem="sxN-UJ-T7F" firstAttribute="top" secondItem="ZIY-ph-T6B" secondAttribute="bottom" constant="10" id="Su8-dv-XMj"/>
-                    <constraint firstItem="n6O-Qd-fcl" firstAttribute="top" secondItem="sxN-UJ-T7F" secondAttribute="bottom" constant="10" id="VE2-6a-c34"/>
-                    <constraint firstItem="sxN-UJ-T7F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cVe-Fb-biB"/>
-                    <constraint firstItem="n6O-Qd-fcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="mg7-5c-8aV"/>
-                    <constraint firstAttribute="trailing" secondItem="n6O-Qd-fcl" secondAttribute="trailing" constant="15" id="sRB-9p-G2l"/>
+                    <constraint firstItem="NVU-yL-NRo" firstAttribute="leading" secondItem="fWr-Zz-w7O" secondAttribute="leading" constant="15" id="NSP-rk-EWz"/>
+                    <constraint firstItem="jdt-8r-yyP" firstAttribute="top" secondItem="ddc-6i-YFH" secondAttribute="bottom" constant="5" id="RMB-It-NdE"/>
+                    <constraint firstAttribute="bottom" secondItem="jdt-8r-yyP" secondAttribute="bottom" constant="15" id="SZk-1e-ChO"/>
+                    <constraint firstItem="ddc-6i-YFH" firstAttribute="trailing" secondItem="s1D-uk-J1T" secondAttribute="trailing" id="ajp-jE-lwN"/>
+                    <constraint firstItem="s1D-uk-J1T" firstAttribute="top" secondItem="fWr-Zz-w7O" secondAttribute="top" constant="15" id="fiA-bI-mcX"/>
+                    <constraint firstItem="jdt-8r-yyP" firstAttribute="leading" secondItem="s1D-uk-J1T" secondAttribute="leading" id="fnp-Eh-MUk"/>
+                    <constraint firstItem="ddc-6i-YFH" firstAttribute="leading" secondItem="s1D-uk-J1T" secondAttribute="leading" id="gbe-gF-ZLm"/>
+                    <constraint firstItem="ddc-6i-YFH" firstAttribute="top" secondItem="s1D-uk-J1T" secondAttribute="bottom" constant="5" id="kq9-ls-02F"/>
+                    <constraint firstAttribute="trailing" secondItem="s1D-uk-J1T" secondAttribute="trailing" constant="15" id="kxI-ly-fBt"/>
+                    <constraint firstItem="s1D-uk-J1T" firstAttribute="leading" secondItem="NVU-yL-NRo" secondAttribute="trailing" constant="15" id="mzO-hc-W9H"/>
+                    <constraint firstItem="jdt-8r-yyP" firstAttribute="trailing" secondItem="s1D-uk-J1T" secondAttribute="trailing" id="uGf-0Y-PIy"/>
+                    <constraint firstItem="NVU-yL-NRo" firstAttribute="centerY" secondItem="fWr-Zz-w7O" secondAttribute="centerY" id="vvM-t8-vdg"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <viewLayoutGuide key="safeArea" id="DSB-aI-Djj"/>
             <connections>
-                <outlet property="replyLab" destination="vIY-Dw-9gz" id="r6i-7P-jC2"/>
-                <outlet property="timeLab" destination="sxN-UJ-T7F" id="LHD-nt-fei"/>
-                <outlet property="titleLab" destination="ZIY-ph-T6B" id="c6Z-Hl-vpc"/>
+                <outlet property="detailLab" destination="ddc-6i-YFH" id="VWV-Tk-0Rl"/>
+                <outlet property="iconImg" destination="NVU-yL-NRo" id="heU-gA-n7v"/>
+                <outlet property="timeLab" destination="jdt-8r-yyP" id="IQO-Yo-5xf"/>
+                <outlet property="titleLab" destination="s1D-uk-J1T" id="P3X-RQ-Yo1"/>
             </connections>
-            <point key="canvasLocation" x="34" y="3.5"/>
+            <point key="canvasLocation" x="34" y="199"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="photoPlacehold" width="120" height="106"/>
+    </resources>
 </document>

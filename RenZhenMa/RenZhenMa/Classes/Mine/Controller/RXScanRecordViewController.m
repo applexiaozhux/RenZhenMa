@@ -70,13 +70,17 @@
 }
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //    return self.listArr.count;
-    return 10;
+    return self.listArr.count;
+//    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RXScanRecord *cell = [tableView dequeueReusableCellWithIdentifier:@"RXScanRecord"];
-    
+    RXScanRecordModel *model = self.listArr[indexPath.row];
+    [cell.iconImg sd_setImageWithURL:[NSURL URLWithString:model.simg]];
+    cell.titleLab.text = model.goods_name;
+    cell.detailLab.text = model.key_name;
+    cell.timeLab.text = model.utime;
     return cell;
 }
 

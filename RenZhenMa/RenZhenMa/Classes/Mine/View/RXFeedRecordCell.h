@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RXFeedRecordCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImg;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UILabel *detailLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
-
+@property (weak, nonatomic) IBOutlet UILabel *replyLab;
 @end

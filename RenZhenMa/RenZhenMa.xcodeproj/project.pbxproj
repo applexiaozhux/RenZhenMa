@@ -418,12 +418,12 @@
 			children = (
 				BC3A135F2140CEDB002F450C /* MineTableViewCell.h */,
 				BC3A13602140CEDB002F450C /* MineTableViewCell.m */,
-				BC3A137221410D84002F450C /* RXFeedRecordCell.h */,
-				BC3A137321410D84002F450C /* RXFeedRecordCell.m */,
-				BC3A137421410D84002F450C /* RXFeedRecordCell.xib */,
 				BC3A137721411567002F450C /* RXScanRecord.h */,
 				BC3A137821411567002F450C /* RXScanRecord.m */,
 				BC3A137921411567002F450C /* RXScanRecord.xib */,
+				BC3A137221410D84002F450C /* RXFeedRecordCell.h */,
+				BC3A137321410D84002F450C /* RXFeedRecordCell.m */,
+				BC3A137421410D84002F450C /* RXFeedRecordCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

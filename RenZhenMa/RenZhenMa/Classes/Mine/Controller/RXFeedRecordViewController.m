@@ -70,15 +70,26 @@
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return self.listArr.count;
-    return 10;
+    return self.listArr.count;
+//    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RXFeedRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXFeedRecordCell"];
-    cell.titleLab.text = @"的垃圾堆里看见的看见大家看见的好看空间打开空间的框架的空间的看到当机立断";
-    cell.detailLab.text = @"回到家萨克的落地的";
-    cell.timeLab.text = @"7938998793989830303";
+    RXFeedRecordModel *model = self.listArr[indexPath.row];
+
+    cell.titleLab.text = model.sinfo;
+    NSString *str = @"";
+    if (model.status&&[model.status isEqualToString:@"1"]) {
+        str = [str stringByAppendingString:@"未读"];
+    }else if (model.status&&[model.status isEqualToString:@"3"]) {
+        str = [str stringByAppendingString:@"已读"];
+    }else if (model.status&&[model.status isEqualToString:@"4"]) {
+        str = [str stringByAppendingString:@"已回复"];
+    }
+    str = model.times;
+    cell.timeLab.text = str;
+    cell.replyLab.text = @"回到家萨克的落地的";
 
     return cell;
 }
