@@ -14,6 +14,7 @@
 #import <UMAnalytics/MobClick.h>
 #import "MarqueeView.h"
 #import "XYNotificationModel.h"
+#import "XYNotificationViewController.h"
 @interface XYScanMainViewController ()
 
 @property(nonatomic,retain)UIButton *scanButton;
@@ -99,7 +100,13 @@
     self.marqueeView.titleFont = [UIFont systemFontOfSize:16];
     self.marqueeView.backgroundColor = [UIColor colorWithString:@"#FDFCEA"];
     __weak MarqueeView *marquee = self.marqueeView;
+    __weak XYScanMainViewController *weakSelf = self;
     self.marqueeView.handlerTitleClickCallBack = ^(NSInteger index){
+        
+        XYNotificationViewController *notiVC = [[XYNotificationViewController alloc] init];
+        XYNotificationModel *model = weakSelf.notiArray[index-1];
+        [weakSelf.navigationController pushViewController:notiVC animated:YES];
+        notiVC.model = model;
         
         NSLog(@"%@----%zd",marquee.titleArr[index-1],index);
     };

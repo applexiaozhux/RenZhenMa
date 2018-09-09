@@ -32,6 +32,8 @@
 		8BD8B7B12144C835005937C4 /* MarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7AF2144C835005937C4 /* MarqueeView.m */; };
 		8BD8B7B42144D6D5005937C4 /* XYNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7B32144D6D5005937C4 /* XYNotificationViewController.m */; };
 		8BD8B7B72144D74F005937C4 /* XYNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7B62144D74F005937C4 /* XYNotificationModel.m */; };
+		8BD8B7BB2144DD09005937C4 /* XYNotificationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7B92144DD09005937C4 /* XYNotificationViewCell.m */; };
+		8BD8B7BC2144DD09005937C4 /* XYNotificationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8B7BA2144DD09005937C4 /* XYNotificationViewCell.xib */; };
 		BB51024A52E190CCBF05BAC5 /* libPods-RenZhenMa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B66C0E8A022D68D174389A /* libPods-RenZhenMa.a */; };
 		BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC882141FD410065E371 /* RXLoginViewController.m */; };
 		BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC8E214203870065E371 /* RXScanCodeViewController.m */; };
@@ -130,6 +132,9 @@
 		8BD8B7B32144D6D5005937C4 /* XYNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNotificationViewController.m; sourceTree = "<group>"; };
 		8BD8B7B52144D74F005937C4 /* XYNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYNotificationModel.h; sourceTree = "<group>"; };
 		8BD8B7B62144D74F005937C4 /* XYNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNotificationModel.m; sourceTree = "<group>"; };
+		8BD8B7B82144DD09005937C4 /* XYNotificationViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYNotificationViewCell.h; sourceTree = "<group>"; };
+		8BD8B7B92144DD09005937C4 /* XYNotificationViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNotificationViewCell.m; sourceTree = "<group>"; };
+		8BD8B7BA2144DD09005937C4 /* XYNotificationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XYNotificationViewCell.xib; sourceTree = "<group>"; };
 		A1007A6C95200EB3A4510D0C /* Pods-RenZhenMa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.release.xcconfig"; sourceTree = "<group>"; };
 		BC21DC872141FD410065E371 /* RXLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXLoginViewController.h; sourceTree = "<group>"; };
 		BC21DC882141FD410065E371 /* RXLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXLoginViewController.m; sourceTree = "<group>"; };
@@ -240,6 +245,9 @@
 				57756B0E214221FD007A9B02 /* RXResultPersonCell.xib */,
 				57756B5221425B52007A9B02 /* RippleAnimationView.h */,
 				57756B5321425B52007A9B02 /* RippleAnimationView.m */,
+				8BD8B7B82144DD09005937C4 /* XYNotificationViewCell.h */,
+				8BD8B7B92144DD09005937C4 /* XYNotificationViewCell.m */,
+				8BD8B7BA2144DD09005937C4 /* XYNotificationViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -630,6 +638,7 @@
 				BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */,
 				8B223ED6213D6391007B8344 /* Assets.xcassets in Resources */,
 				BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */,
+				8BD8B7BC2144DD09005937C4 /* XYNotificationViewCell.xib in Resources */,
 				8B223ED4213D638E007B8344 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +746,7 @@
 				BCFA4BA52143CD54000E6ACB /* XYProductInfoModel.m in Sources */,
 				BCFA4BAB2143CDBE000E6ACB /* XYGooddDataModel.m in Sources */,
 				8BD8B7B42144D6D5005937C4 /* XYNotificationViewController.m in Sources */,
+				8BD8B7BB2144DD09005937C4 /* XYNotificationViewCell.m in Sources */,
 				57756B5421425B53007A9B02 /* RippleAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
