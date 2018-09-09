@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到代扣代缴离开的杰拉德的劳动力的几率看到" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFG-o7-cdy">
-                        <rect key="frame" x="15" y="15" width="290" height="141.5"/>
+                        <rect key="frame" x="15" y="15" width="290" height="156.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4d-dW-Nt5">
-                        <rect key="frame" x="15" y="166.5" width="290" height="20"/>
+                        <rect key="frame" x="15" y="181.5" width="290" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="50M-mG-DSf"/>
                         </constraints>
@@ -48,14 +48,14 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="300" verticalCompressionResistancePriority="800" text="回复:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uJ-og-haB">
-                        <rect key="frame" x="15" y="196.5" width="29" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="300" verticalCompressionResistancePriority="800" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uJ-og-haB">
+                        <rect key="frame" x="15" y="211.5" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.66274509803921566" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="270" verticalCompressionResistancePriority="770" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4V-iM-IHf">
-                        <rect key="frame" x="49" y="221.5" width="256" height="0.0"/>
+                        <rect key="frame" x="20" y="221.5" width="285" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.66274509800000003" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -78,7 +78,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="zvl-Lf-efL"/>
             <connections>
+                <outlet property="replayConst" destination="ZvU-qY-XiJ" id="Wir-9S-JFm"/>
                 <outlet property="replyLab" destination="K4V-iM-IHf" id="bXC-Vo-Tg5"/>
+                <outlet property="replyStatusLabel" destination="9uJ-og-haB" id="7qM-nM-XSd"/>
                 <outlet property="timeLab" destination="Z4d-dW-Nt5" id="NPb-gZ-Tda"/>
                 <outlet property="titleLab" destination="TFG-o7-cdy" id="3WX-1U-WsG"/>
             </connections>

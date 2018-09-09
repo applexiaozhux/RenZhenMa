@@ -12,6 +12,7 @@
 #import "XYProductInfoModel.h"
 #import "RXWarningViewController.h"
 #import "UIButton+CountDown.h"
+#import <UMAnalytics/MobClick.h>
 @interface RXScanCodeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -32,24 +33,33 @@
     self.title = @"输入验证码";
 
     
-    [self initSubViews];
+//    [self initSubViews];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void)initSubViews{
-    
-    
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"扫码输入验证码界面"];
 }
 
--(void)requestData{
-    
-    
-    
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"扫码输入验证码界面"];
 }
+
+//-(void)initSubViews{
+//    
+//    
+//}
+//
+//-(void)requestData{
+//    
+//    
+//    
+//}
 
 
 - (IBAction)getCodeButtonClick {
@@ -59,7 +69,10 @@
         
         return;
     }
-    
+    if (![self.phoneTextField.text isMobileNumber]) {
+        [XYProgressHUD showMessage:@"请输入正确的手机号码"];
+        return;
+    }
     if (self.valueStr == nil) {
         [XYProgressHUD showMessage:@"未获取到有效url"];
     
@@ -93,6 +106,10 @@
     if (![self.phoneTextField hasText]) {
         [XYProgressHUD showMessage:@"请输入手机号"];
         
+        return;
+    }
+    if (![self.phoneTextField.text isMobileNumber]) {
+        [XYProgressHUD showMessage:@"请输入正确的手机号码"];
         return;
     }
     if (![self.codeTextField hasText]) {

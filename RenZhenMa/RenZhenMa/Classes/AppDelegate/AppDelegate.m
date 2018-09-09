@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 #import "XYTabBarController.h"
-
+#import <AFNetworking.h>
+#import "XYProgressHUD.h"
+#import "XYConst.h"
+#import <UMCommon/UMCommon.h>
 @interface AppDelegate ()
 
 @end
@@ -25,7 +28,9 @@
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     
+    [self listenNetWorkingStatus];
     
+    [UMConfigure initWithAppkey:kUMAppkey channel:@"App Store"];
     return YES;
 }
 
@@ -56,5 +61,40 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+-(void)listenNetWorkingStatus{
+    //1:创建网络监听者
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];
+    //2:获取网络状态
+    /*
+     AFNetworkReachabilityStatusUnknown          = 未知网络，
+     AFNetworkReachabilityStatusNotReachable     = 没有联网
+     AFNetworkReachabilityStatusReachableViaWWAN = 蜂窝数据
+     AFNetworkReachabilityStatusReachableViaWiFi = 无线网
+     */
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                DLog(@"未知网络");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                
+                [XYProgressHUD showMessage:@"未能连接到网络"];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                DLog(@"蜂窝数据");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                DLog(@"无线网");
+                break;
+            default:
+                [XYProgressHUD showMessage:@"未能连接到网络"];
+                break;
+        }
+    }];
+    
+    //开启网络监听
+    [manager startMonitoring];
+}
 
 @end

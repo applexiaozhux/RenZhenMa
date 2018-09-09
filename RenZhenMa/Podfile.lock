@@ -20,6 +20,10 @@ PODS:
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
   - SVProgressHUD (2.2.5)
+  - UMCAnalytics (5.5.0):
+    - UMCCommon
+  - UMCCommon (1.5.1)
+  - UMCSecurityPlugins (1.0.6)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -30,6 +34,9 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - SVProgressHUD
+  - UMCAnalytics
+  - UMCCommon
+  - UMCSecurityPlugins
   - YYKit
 
 SPEC REPOS:
@@ -39,6 +46,9 @@ SPEC REPOS:
     - MJRefresh
     - SDWebImage
     - SVProgressHUD
+    - UMCAnalytics
+    - UMCCommon
+    - UMCSecurityPlugins
     - YYKit
 
 SPEC CHECKSUMS:
@@ -47,8 +57,11 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
+  UMCCommon: 16b674e9de0616d3a6128c551348a686d869c3c7
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 92557014b52e0db8b62e7aa84eb62076a7bc40e4
+PODFILE CHECKSUM: 75a709681bca6762517e0546d42c10698413bd45
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

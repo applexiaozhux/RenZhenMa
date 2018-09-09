@@ -11,12 +11,15 @@
 #import "XYShowScanViewController.h"
 #import "XYNavigationViewController.h"
 #import "RippleAnimationView.h"
+#import <UMAnalytics/MobClick.h>
+#import "MarqueeView.h"
 @interface XYScanMainViewController ()
 
 @property(nonatomic,retain)UIButton *scanButton;
 
 @property(nonatomic,retain)UIImageView *iconImageView;
-
+@property (nonatomic, strong) MarqueeView *marqueeView;
+@property(nonatomic,strong) UIView *headerView;
 @end
 
 @implementation XYScanMainViewController
@@ -24,7 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"认证码";
     [self initSubViews];
+    [self configureTongzhi];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"扫码首页"];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"扫码首页"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +73,44 @@
         make.bottom.equalTo(self.view).offset(-(KTabBar_Height + 30));
         make.centerX.equalTo(self.view);
     }];
+    
+    
+    
+    
+}
+
+-(void)configureTongzhi{
+    
+    self.headerView = [[UIView alloc] init];
+    [self.view addSubview:self.headerView];
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(20);
+        make.height.mas_equalTo(30);
+    }];
+    
+    
+    [self.headerView addSubview:self.marqueeView];
+    [self.marqueeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.headerView);
+    }];
+    
+    UIButton *closeButton = [[UIButton alloc] init];
+    [closeButton setImage:[UIImage imageNamed:@"close_home"] forState:UIControlStateNormal];
+    [self.headerView addSubview:closeButton];
+    
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.headerView).offset(-15);
+        make.centerY.equalTo(self.headerView);
+    }];
+    [closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+
+-(void)closeButtonClick{
+    
+    self.headerView.hidden = YES;
     
 }
 
@@ -93,6 +146,23 @@
     return _iconImageView;
 }
 
+- (MarqueeView *)marqueeView{
+    
+    if (!_marqueeView) {
+        MarqueeView *marqueeView =[[MarqueeView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30) withTitle:@[@"1.我觉得封装好好玩",@"2.经常玩玩可以锻炼自己的技术耶",@"3.所以要经常经常玩玩，这样才能更加完美",@"4.你说对不对",@"end"]];
+        marqueeView.titleColor = [UIColor colorWithString:@"#DD7536"];
+        marqueeView.titleFont = [UIFont systemFontOfSize:16];
+        marqueeView.backgroundColor = [UIColor colorWithString:@"#FDFCEA"];
+        __weak MarqueeView *marquee = marqueeView;
+        marqueeView.handlerTitleClickCallBack = ^(NSInteger index){
+            
+            NSLog(@"%@----%zd",marquee.titleArr[index-1],index);
+        };
+        _marqueeView = marqueeView;
+    }
+    return _marqueeView;
+    
+}
 
 
 @end

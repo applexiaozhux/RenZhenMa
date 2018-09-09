@@ -8,5 +8,7 @@ pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'YYKit'
 pod 'Masonry'
-
+pod 'UMCCommon'
+pod 'UMCAnalytics'
+pod 'UMCSecurityPlugins'
 end

@@ -27,6 +27,9 @@
 		8B223EDC213D6391007B8344 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B223EDB213D6391007B8344 /* main.m */; };
 		8B223EE6213D6391007B8344 /* RenZhenMaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B223EE5213D6391007B8344 /* RenZhenMaTests.m */; };
 		8B223EF1213D6391007B8344 /* RenZhenMaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B223EF0213D6391007B8344 /* RenZhenMaUITests.m */; };
+		8BD8B7AA2144AE72005937C4 /* XYNormalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7A92144AE72005937C4 /* XYNormalWebViewController.m */; };
+		8BD8B7B02144C835005937C4 /* UIView+HHAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7AE2144C835005937C4 /* UIView+HHAddition.m */; };
+		8BD8B7B12144C835005937C4 /* MarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD8B7AF2144C835005937C4 /* MarqueeView.m */; };
 		BB51024A52E190CCBF05BAC5 /* libPods-RenZhenMa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B66C0E8A022D68D174389A /* libPods-RenZhenMa.a */; };
 		BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC882141FD410065E371 /* RXLoginViewController.m */; };
 		BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC21DC8E214203870065E371 /* RXScanCodeViewController.m */; };
@@ -115,6 +118,12 @@
 		8B223EEC213D6391007B8344 /* RenZhenMaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenZhenMaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B223EF0213D6391007B8344 /* RenZhenMaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenZhenMaUITests.m; sourceTree = "<group>"; };
 		8B223EF2213D6391007B8344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BD8B7A82144AE72005937C4 /* XYNormalWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYNormalWebViewController.h; sourceTree = "<group>"; };
+		8BD8B7A92144AE72005937C4 /* XYNormalWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNormalWebViewController.m; sourceTree = "<group>"; };
+		8BD8B7AC2144C835005937C4 /* MarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeView.h; sourceTree = "<group>"; };
+		8BD8B7AD2144C835005937C4 /* UIView+HHAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHAddition.h"; sourceTree = "<group>"; };
+		8BD8B7AE2144C835005937C4 /* UIView+HHAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHAddition.m"; sourceTree = "<group>"; };
+		8BD8B7AF2144C835005937C4 /* MarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeView.m; sourceTree = "<group>"; };
 		A1007A6C95200EB3A4510D0C /* Pods-RenZhenMa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.release.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.release.xcconfig"; sourceTree = "<group>"; };
 		BC21DC872141FD410065E371 /* RXLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXLoginViewController.h; sourceTree = "<group>"; };
 		BC21DC882141FD410065E371 /* RXLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXLoginViewController.m; sourceTree = "<group>"; };
@@ -406,11 +415,24 @@
 			path = RenZhenMaUITests;
 			sourceTree = "<group>";
 		};
+		8BD8B7AB2144C835005937C4 /* Marquee */ = {
+			isa = PBXGroup;
+			children = (
+				8BD8B7AC2144C835005937C4 /* MarqueeView.h */,
+				8BD8B7AF2144C835005937C4 /* MarqueeView.m */,
+				8BD8B7AD2144C835005937C4 /* UIView+HHAddition.h */,
+				8BD8B7AE2144C835005937C4 /* UIView+HHAddition.m */,
+			);
+			path = Marquee;
+			sourceTree = "<group>";
+		};
 		BC21DC862141FD320065E371 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				BC21DC872141FD410065E371 /* RXLoginViewController.h */,
 				BC21DC882141FD410065E371 /* RXLoginViewController.m */,
+				8BD8B7A82144AE72005937C4 /* XYNormalWebViewController.h */,
+				8BD8B7A92144AE72005937C4 /* XYNormalWebViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -429,6 +451,7 @@
 		BC3A134D2140C9A3002F450C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				8BD8B7AB2144C835005937C4 /* Marquee */,
 				BCFA4B9521435ED8000E6ACB /* XYNetworking */,
 				BCFA4BAF2143F9ED000E6ACB /* XYProgressHUD.h */,
 				BCFA4BB02143F9ED000E6ACB /* XYProgressHUD.m */,
@@ -674,7 +697,9 @@
 				57842A312140BB0E006DF676 /* XYTabBarController.m in Sources */,
 				57842A352140BB53006DF676 /* UIImage+XYColorString.m in Sources */,
 				BC3A137A21411567002F450C /* RXScanRecord.m in Sources */,
+				8BD8B7B12144C835005937C4 /* MarqueeView.m in Sources */,
 				BC21DC92214204B20065E371 /* RXWarningViewController.m in Sources */,
+				8BD8B7B02144C835005937C4 /* UIView+HHAddition.m in Sources */,
 				8B223EDC213D6391007B8344 /* main.m in Sources */,
 				BC3A136E2141004F002F450C /* RXSettingViewController.m in Sources */,
 				8B223ECE213D638E007B8344 /* AppDelegate.m in Sources */,
@@ -682,6 +707,7 @@
 				57842A272140BA39006DF676 /* XYScanMainViewController.m in Sources */,
 				57756AFD21421151007A9B02 /* XYZQRScanView.m in Sources */,
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
+				8BD8B7AA2144AE72005937C4 /* XYNormalWebViewController.m in Sources */,
 				BCFA4BA12143752C000E6ACB /* NSString+MD5.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
 				BCFA4BB4214404EF000E6ACB /* UIButton+CountDown.m in Sources */,

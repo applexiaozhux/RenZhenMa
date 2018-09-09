@@ -17,7 +17,7 @@
 #import "RXLoginViewController.h"
 #import "XYNavigationViewController.h"
 #import "RXQueryResultViewController.h"
-
+#import <UMAnalytics/MobClick.h>
 static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 
 @interface XYMineMainViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -40,6 +40,17 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
     [_listArr addObjectsFromArray:@[@{@"name":@"扫描记录",@"icon":@"jilu"},@{@"name":@"反馈记录",@"icon":@"menu"},@{@"name":@"意见反馈",@"icon":@"jainyi"},@{@"name":@"设置",@"icon":@"set"}]];
     [self initView];
     [self configureNotification];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"我的"];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"我的"];
 }
 
 

@@ -8,7 +8,7 @@
 
 #import "RXFeedRecordCell.h"
 #import "XYCommonHeader.h"
-
+#import "RXFeedRecordModel.h"
 @implementation RXFeedRecordCell
 
 - (void)awakeFromNib {
@@ -19,6 +19,34 @@
     _timeLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(12)];
     _replyLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
 
+}
+
+
+-(void)setModel:(RXFeedRecordModel *)model{
+    _model = model;
+    
+    self.titleLab.text = model.sinfo;
+    NSString *str = @"";
+    if (model.status&&[model.status isEqualToString:@"1"]) {
+        str = @"未读   ";
+    }else if (model.status&&[model.status isEqualToString:@"3"]) {
+        str = @"已读   ";
+    }else if (model.status&&[model.status isEqualToString:@"4"]) {
+        str = @"已回复   ";
+    }
+    NSString *time = [model.times timeStampString:nil];
+    str = [str stringByAppendingString:time];
+    self.timeLab.text = str;
+    
+    if ([model.rstatus isEqualToString:@"1"]) {
+        self.replyLab.text = model.rinfo;
+        self.replyStatusLabel.text = @"回复：";
+        self.replayConst.constant = 15;
+    }else{
+        self.replyLab.text = @"";
+        self.replyStatusLabel.text = @"";
+        self.replayConst.constant = 0;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

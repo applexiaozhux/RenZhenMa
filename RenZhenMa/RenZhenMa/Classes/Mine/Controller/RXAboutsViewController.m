@@ -10,6 +10,7 @@
 #import "XYCommonHeader.h"
 
 @interface RXAboutsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end
 
@@ -26,31 +27,31 @@
 }
 
 -(void)initView{
-    UIImageView *iconImg = [[UIImageView alloc] init];
-    [iconImg setImage:[UIImage imageNamed:@"mine_settings"]];
-    [self.view addSubview:iconImg];
+//    UIImageView *iconImg = [[UIImageView alloc] init];
+//    [iconImg setImage:[UIImage imageNamed:@"mine_settings"]];
+//    [self.view addSubview:iconImg];
 //    iconImg.layer.masksToBounds = YES;
 
-    [iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(@SCALE375_WIDTH(120));
-        make.height.equalTo(@SCALE375_WIDTH(120));
-        make.centerY.equalTo(self.view.mas_centerY).offset(-SCALE375_WIDTH(30));
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
+//    [iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(@SCALE375_WIDTH(120));
+//        make.height.equalTo(@SCALE375_WIDTH(120));
+//        make.centerY.equalTo(self.view.mas_centerY).offset(-SCALE375_WIDTH(30));
+//        make.centerX.equalTo(self.view.mas_centerX);
+//    }];
     
-    UILabel *nameLab = [[UILabel alloc] init];
-    nameLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
-    nameLab.textAlignment = NSTextAlignmentCenter;
-    nameLab.textColor = [UIColor colorWithString:kThemeColorStr];
-    nameLab.text = [NSString stringWithFormat:@"当前版本：V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-    [self.view addSubview:nameLab];
+//    UILabel *nameLab = [[UILabel alloc] init];
+//    nameLab.font = [UIFont systemFontOfSize:SCALE375_WIDTH(13)];
+//    nameLab.textAlignment = NSTextAlignmentCenter;
+//    nameLab.textColor = [UIColor colorWithString:kThemeColorStr];
+    self.versionLabel.text = [NSString stringWithFormat:@"当前版本：%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+//    [self.view addSubview:nameLab];
     
-    [nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-SCALE375_WIDTH(20));
-        make.right.equalTo(self.view.mas_right);
-        make.height.equalTo(@SCALE375_WIDTH(15));
-    }];
+//    [nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.view.mas_left);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-SCALE375_WIDTH(20));
+//        make.right.equalTo(self.view.mas_right);
+//        make.height.equalTo(@SCALE375_WIDTH(15));
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

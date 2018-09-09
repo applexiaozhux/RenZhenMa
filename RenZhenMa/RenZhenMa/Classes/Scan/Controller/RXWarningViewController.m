@@ -8,7 +8,7 @@
 
 #import "RXWarningViewController.h"
 #import "XYCommonHeader.h"
-
+#import <UMAnalytics/MobClick.h>
 @interface RXWarningViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *waringImageView;
@@ -34,7 +34,14 @@
     
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"警告界面"];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"警告界面"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

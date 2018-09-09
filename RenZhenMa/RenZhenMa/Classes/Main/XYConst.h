@@ -24,8 +24,10 @@ static NSString *kUserInfoData = @"kUserInfoData";
 static NSString *kLoginSuccess = @"kLoginSuccess";
 //退出登录通知
 static NSString *kLogoutSuccess = @"kLogoutSuccess";
-
+//主题颜色
 static NSString *kThemeColorStr = @"#00a950"; //主题颜色
+//友盟key
+static NSString *kUMAppkey = @"5b9481e7b27b0a540a00032f";
 
 #define RGBCOLOR(r, g, b)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 //背景色

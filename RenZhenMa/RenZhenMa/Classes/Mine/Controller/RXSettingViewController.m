@@ -70,7 +70,9 @@
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (indexPath.row ==0) {//关于我们
-        RXAboutsViewController *vc = [[RXAboutsViewController alloc] init];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        RXAboutsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"RXAboutsViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 1) {//退出登录
         [self quitBtnClick];

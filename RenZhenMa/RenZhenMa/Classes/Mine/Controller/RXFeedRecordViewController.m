@@ -36,13 +36,12 @@
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
         tableView.showsHorizontalScrollIndicator = NO;
-        tableView.rowHeight = SCALE375_WIDTH(47);
+        tableView.estimatedRowHeight = 100;
         tableView.tableFooterView = [[UIView alloc]init];
         [tableView registerNib:[UINib nibWithNibName:@"RXFeedRecordCell" bundle:nil] forCellReuseIdentifier:@"RXFeedRecordCell"];
         tableView.backgroundColor = DeviceBackGroundColor;
         tableView.delegate = self;
         tableView.dataSource = self;
-        tableView.estimatedRowHeight = SCALE375_WIDTH(107);
         tableView.rowHeight = UITableViewAutomaticDimension;
         tableView.separatorColor = DeviceLineViewColor;
         tableView;
@@ -79,17 +78,18 @@
     
     
     [[XYNetworkManager defaultManager] post:@"getSuggest" params:dic success:^(id response, id responseObject) {
-        [self.tableView.mj_footer endRefreshing];
-        [self.tableView.mj_header endRefreshing];
+        
         if (self.page == 1) {
             [self.listArr removeAllObjects];
         }
         NSArray *data = (NSArray *)response;
         if (data.count == 0) {
             [XYProgressHUD showMessage:@"没有更多数据了"];
-            
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
             return ;
         }
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         for (NSDictionary *list in data) {
             RXFeedRecordModel *model = [RXFeedRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];
@@ -111,19 +111,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RXFeedRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXFeedRecordCell"];
     RXFeedRecordModel *model = self.listArr[indexPath.row];
-
-    cell.titleLab.text = model.sinfo;
-    NSString *str = @"";
-    if (model.status&&[model.status isEqualToString:@"1"]) {
-        str = @"未读   ";
-    }else if (model.status&&[model.status isEqualToString:@"3"]) {
-        str = @"已读   ";
-    }else if (model.status&&[model.status isEqualToString:@"4"]) {
-        str = @"已回复   ";
-    }
-    str = [str stringByAppendingString:model.times];
-    cell.timeLab.text = str;
-    cell.replyLab.text = @"回到家萨克的落地的";
+    cell.model = model;
 
     return cell;
 }

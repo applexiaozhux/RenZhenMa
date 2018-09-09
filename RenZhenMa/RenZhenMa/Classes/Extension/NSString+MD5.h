@@ -11,4 +11,12 @@
 @interface NSString (MD5)
 - (NSString *)md5;
 -(NSString *)timeStampString:(NSString *)formatter;
+
+/**
+ 验证手机号码
+ 
+ @return 正则验证成功返回YES, 否则返回NO
+ */
+- (BOOL)isMobileNumber;
+
 @end

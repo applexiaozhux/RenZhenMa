@@ -38,7 +38,6 @@
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
         tableView.showsHorizontalScrollIndicator = NO;
-        tableView.rowHeight = SCALE375_WIDTH(47);
         tableView.tableFooterView = [[UIView alloc]init];
         [tableView registerNib:[UINib nibWithNibName:@"RXScanRecord" bundle:nil] forCellReuseIdentifier:@"RXScanRecord"];
         tableView.backgroundColor = DeviceBackGroundColor;
@@ -51,6 +50,10 @@
     });
     [self.view addSubview:self.tableView];
     
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadData];
     }];
@@ -59,7 +62,6 @@
 
 //获取扫描记录调用接口（扫描记录页） code为1时，把info数据显示出来。 code不为1，根据返回结果message给出提示
 -(void)loadData{
-    [self.listArr removeAllObjects];
     if (![XYUserInfoManager isLogin]) {
         return;
     }
@@ -67,8 +69,14 @@
     NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@(self.page),@"num":@"10",@"token":userinfo.token};
     
     [[XYNetworkManager defaultManager] post:@"scanRecord" params:dic success:^(id response, id responseObject) {
-        [self.tableView.mj_footer endRefreshing];
+        
         NSArray *data = (NSArray *)response;
+        if (data.count == 0) {
+            [XYProgressHUD showMessage:@"没有更多数据了"];
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            return ;
+        }
+        [self.tableView.mj_footer endRefreshing];
         for (NSDictionary *list in data) {
             RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];

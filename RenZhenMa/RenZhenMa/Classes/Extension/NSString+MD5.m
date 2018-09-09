@@ -40,4 +40,18 @@
     
 }
 
+
+/**
+ 验证手机号码
+ 
+ @return 正则验证成功返回YES, 否则返回NO
+ */
+- (BOOL)isMobileNumber {// @"^(13[0-9]|14[56789]|15[0-9]|16[6]|17[0-9]|18[0-9]|19[89])\\d{8}$";
+    NSString *emailRegex = @"^1(3[0-9]|4[56789]|5[0-9]|6[6]|7[0-9]|8[0-9]|9[89])\\d{8}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",emailRegex];
+    return [predicate evaluateWithObject:self];
+}
+
+
+
 @end

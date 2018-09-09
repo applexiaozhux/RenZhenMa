@@ -53,8 +53,9 @@
         XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
         NSString *signature = [NSString stringWithFormat:@"%@%@",userInfo.uid,userInfo.token];
         NSDictionary *params = @{@"wxid":userInfo.uid,@"token":userInfo.token,@"signature":[signature md5]};
-        
-        [[XYNetworkManager defaultManager] post:@"getToken" params:params success:^(id response, id responseObject) {
+        XYNetworkManager *manager = [XYNetworkManager defaultManager];
+        manager.isShowHUD = NO;
+        [manager post:@"getToken" params:params success:^(id response, id responseObject) {
             NSDictionary *dic = (NSDictionary *)response;
             userInfo.token = dic[@"token"];
             [XYUserInfoManager shareInfoManager].userInfo = userInfo;

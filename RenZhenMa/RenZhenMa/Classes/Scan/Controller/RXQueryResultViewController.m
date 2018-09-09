@@ -12,6 +12,7 @@
 #import "RXResultPersonCell.h"
 #import "XYProductInfoModel.h"
 #import "XYGooddDataModel.h"
+#import <UMAnalytics/MobClick.h>
 @interface RXQueryResultViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,retain)NSMutableArray *productArray;
@@ -29,6 +30,16 @@
     [self initSubViews];
     [self configureData];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:self.title];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:self.title];
 }
 
 -(void)initSubViews{

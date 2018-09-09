@@ -12,6 +12,8 @@
 #import "RXScanCodeViewController.h"
 #import "UIImage+XYColorString.h"
 #import "RXWarningViewController.h"
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
 @interface XYShowScanViewController ()<XYZQRScanDelegate>
 @property (nonatomic ,strong) XYZQRScanView *scanView;
 
@@ -35,11 +37,13 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [self.scanView startScanning];
+    [MobClick beginLogPageView:@"扫码界面"]; //("Pagename"为页面名称，可自定义)
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage navigationBarImageWithColorString:kThemeColorStr] forBarMetrics:UIBarMetricsDefault];
+    [MobClick endLogPageView:@"扫码界面"];
 }
 
 -(void)initSubViews{
