@@ -12,6 +12,7 @@
 #import "XYScanMainViewController.h"
 #import "XYMineMainViewController.h"
 #import "XYCommonHeader.h"
+#import "RXLocationManager.h"
 
 @interface XYTabBarController ()<UITabBarControllerDelegate>
 
@@ -22,10 +23,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loactionEndNotify) name:NotificationLocation_End object:nil];
+
+    [RXLocationManager getLocationWithBlock:^(TJLocationDataType type,NSString *record, NSString *locality, NSString *subLocality) {
+    }];
+
     [self initSubViews];
     [self refreshToken];
     self.delegate = self;
 
+}
+//通知方法调用
+- (void)loactionEndNotify {
+    
+    NSString *localitystr = [RXLocationManager manager].nowlocality;
+    DLog(@"%@",localitystr);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

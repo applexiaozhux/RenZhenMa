@@ -69,6 +69,8 @@ static NSString *kUMAppkey = @"5b9481e7b27b0a540a00032f";
 
 #define KStatusBar_Height          (iPhoneX ? 44.f : 20.f)
 
+#define NotificationLocation_End            @"NotificationLocation_End"//获取位置完成通知
+
 
 #ifdef DEBUG
 #    define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
