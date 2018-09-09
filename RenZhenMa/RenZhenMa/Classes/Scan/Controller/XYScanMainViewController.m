@@ -13,6 +13,7 @@
 #import "RippleAnimationView.h"
 #import <UMAnalytics/MobClick.h>
 #import "MarqueeView.h"
+#import "XYNotificationModel.h"
 @interface XYScanMainViewController ()
 
 @property(nonatomic,retain)UIButton *scanButton;
@@ -20,6 +21,7 @@
 @property(nonatomic,retain)UIImageView *iconImageView;
 @property (nonatomic, strong) MarqueeView *marqueeView;
 @property(nonatomic,strong) UIView *headerView;
+@property (nonatomic,retain) NSMutableArray *notiArray;
 @end
 
 @implementation XYScanMainViewController
@@ -29,7 +31,8 @@
     // Do any additional setup after loading the view.
     self.title = @"认证码";
     [self initSubViews];
-    [self configureTongzhi];
+    
+    [self requestData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -79,9 +82,10 @@
     
 }
 
--(void)configureTongzhi{
+-(void)configureTongzhi:(NSArray *)titleArray{
     
     self.headerView = [[UIView alloc] init];
+//    self.headerView.hidden = YES;
     [self.view addSubview:self.headerView];
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
@@ -89,6 +93,16 @@
         make.height.mas_equalTo(30);
     }];
     
+    
+    self.marqueeView =[[MarqueeView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30) withTitle:titleArray];
+    self.marqueeView.titleColor = [UIColor colorWithString:@"#DD7536"];
+    self.marqueeView.titleFont = [UIFont systemFontOfSize:16];
+    self.marqueeView.backgroundColor = [UIColor colorWithString:@"#FDFCEA"];
+    __weak MarqueeView *marquee = self.marqueeView;
+    self.marqueeView.handlerTitleClickCallBack = ^(NSInteger index){
+        
+        NSLog(@"%@----%zd",marquee.titleArr[index-1],index);
+    };
     
     [self.headerView addSubview:self.marqueeView];
     [self.marqueeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,6 +121,24 @@
     
 }
 
+-(void)requestData{
+    
+    [[XYNetworkManager defaultManager] post:@"getInform" params:@{} success:^(id response, id responseObject) {
+        
+        NSLog(@"%@",response);
+        NSArray *array = (NSArray *)response;
+        NSMutableArray *titleArray = [NSMutableArray array];
+        for (NSDictionary *dic in array) {
+            XYNotificationModel *model = [XYNotificationModel modelWithDictionary:dic];
+            [self.notiArray addObject:model];
+            [titleArray addObject:model.title];
+        }
+        [self configureTongzhi:titleArray];
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+}
 
 -(void)closeButtonClick{
     
@@ -146,23 +178,13 @@
     return _iconImageView;
 }
 
-- (MarqueeView *)marqueeView{
-    
-    if (!_marqueeView) {
-        MarqueeView *marqueeView =[[MarqueeView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30) withTitle:@[@"1.我觉得封装好好玩",@"2.经常玩玩可以锻炼自己的技术耶",@"3.所以要经常经常玩玩，这样才能更加完美",@"4.你说对不对",@"end"]];
-        marqueeView.titleColor = [UIColor colorWithString:@"#DD7536"];
-        marqueeView.titleFont = [UIFont systemFontOfSize:16];
-        marqueeView.backgroundColor = [UIColor colorWithString:@"#FDFCEA"];
-        __weak MarqueeView *marquee = marqueeView;
-        marqueeView.handlerTitleClickCallBack = ^(NSInteger index){
-            
-            NSLog(@"%@----%zd",marquee.titleArr[index-1],index);
-        };
-        _marqueeView = marqueeView;
-    }
-    return _marqueeView;
-    
-}
 
+
+-(NSMutableArray *)notiArray{
+    if (!_notiArray) {
+        _notiArray = [NSMutableArray array];
+    }
+    return _notiArray;
+}
 
 @end
