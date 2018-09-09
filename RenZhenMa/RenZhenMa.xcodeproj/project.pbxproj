@@ -51,6 +51,7 @@
 		BC3A137621410D84002F450C /* RXFeedRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137421410D84002F450C /* RXFeedRecordCell.xib */; };
 		BC3A137A21411567002F450C /* RXScanRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A137821411567002F450C /* RXScanRecord.m */; };
 		BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137921411567002F450C /* RXScanRecord.xib */; };
+		BCDFAC712144DC380096ABB6 /* RXLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDFAC702144DC380096ABB6 /* RXLocationManager.m */; };
 		BCFA4B91214357A4000E6ACB /* XYUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */; };
 		BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */; };
 		BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */; };
@@ -166,6 +167,8 @@
 		BC3A137721411567002F450C /* RXScanRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXScanRecord.h; sourceTree = "<group>"; };
 		BC3A137821411567002F450C /* RXScanRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXScanRecord.m; sourceTree = "<group>"; };
 		BC3A137921411567002F450C /* RXScanRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXScanRecord.xib; sourceTree = "<group>"; };
+		BCDFAC6F2144DC380096ABB6 /* RXLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXLocationManager.h; sourceTree = "<group>"; };
+		BCDFAC702144DC380096ABB6 /* RXLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXLocationManager.m; sourceTree = "<group>"; };
 		BCFA4B8F214357A4000E6ACB /* XYUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoManager.h; sourceTree = "<group>"; };
 		BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoManager.m; sourceTree = "<group>"; };
 		BCFA4B9221435806000E6ACB /* XYUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoModel.h; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 			children = (
 				BCFA4B9921435F36000E6ACB /* XYNetworkManager.h */,
 				BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */,
+				BCDFAC6F2144DC380096ABB6 /* RXLocationManager.h */,
+				BCDFAC702144DC380096ABB6 /* RXLocationManager.m */,
 			);
 			path = XYNetworking;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 			files = (
 				BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */,
 				BCFA4BB12143F9ED000E6ACB /* XYProgressHUD.m in Sources */,
+				BCDFAC712144DC380096ABB6 /* RXLocationManager.m in Sources */,
 				BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */,
 				57756B15214221FE007A9B02 /* RXResultInfoCell.m in Sources */,
 				BCFA4BA82143CD70000E6ACB /* XYGoodModel.m in Sources */,

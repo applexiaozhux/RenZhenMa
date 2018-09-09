@@ -12,6 +12,7 @@
 #import "XYProgressHUD.h"
 #import "XYConst.h"
 #import <UMCommon/UMCommon.h>
+
 @interface AppDelegate ()
 
 @end
@@ -28,6 +29,8 @@
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     
+
+
     [self listenNetWorkingStatus];
     
     [UMConfigure initWithAppkey:kUMAppkey channel:@"App Store"];
