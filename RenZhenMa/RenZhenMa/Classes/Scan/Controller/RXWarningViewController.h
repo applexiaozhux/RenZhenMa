@@ -10,4 +10,8 @@
 
 @interface RXWarningViewController : UIViewController
 
+
+@property (nonatomic,copy)NSString *imgStr;
+@property (nonatomic,copy) NSString *warningContent;
+
 @end

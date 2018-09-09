@@ -9,6 +9,8 @@
 #import "XYUserInfoManager.h"
 #import "XYConst.h"
 #import "XYUserInfoModel.h"
+#import "RXLoginViewController.h"
+#import "XYNavigationViewController.h"
 @implementation XYUserInfoManager
 
 +(instancetype)shareInfoManager{
@@ -37,6 +39,24 @@
     return YES;
     
 }
++(void)showLoginViewController:(XYLoginDoneBlock)done controller:(UIViewController *)controller{
+    
+    if ([XYUserInfoManager isLogin]) {
+        done(YES);
+    }else{
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        RXLoginViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXLoginViewController"];
+        XYNavigationViewController *naviVC = [[XYNavigationViewController alloc] initWithRootViewController:vc];
+        vc.loginDone = ^(BOOL success) {
+            done(success);
+        };
+        [controller presentViewController:naviVC animated:YES completion:nil];
+        
+    }
+    
+}
+
 -(void)logOut{
     
     self.userInfo = nil;

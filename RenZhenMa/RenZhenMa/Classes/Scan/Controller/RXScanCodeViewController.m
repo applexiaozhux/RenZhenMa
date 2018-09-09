@@ -9,10 +9,14 @@
 #import "RXScanCodeViewController.h"
 #import "XYCommonHeader.h"
 #import "RXQueryResultViewController.h"
+#import "XYProductInfoModel.h"
+#import "RXWarningViewController.h"
+#import "UIButton+CountDown.h"
 @interface RXScanCodeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *codeButton;
 
 - (IBAction)getCodeButtonClick;
 - (IBAction)quaryButtonClick;
@@ -51,17 +55,31 @@
 - (IBAction)getCodeButtonClick {
     
     if (![self.phoneTextField hasText]) {
-        [SVProgressHUD showErrorWithStatus:@"请先输入手机号"];
+        [XYProgressHUD showMessage:@"请输入手机号"];
+        
         return;
     }
     
-    XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
-    NSString *signature = [[NSString stringWithFormat:@"%@%@%@%@",userInfo.uid,self.valueStr,self.phoneTextField.text,userInfo.token] md5];
-    NSDictionary *params = @{@"qrcode":self.valueStr,@"wxid":userInfo.uid,@"token":userInfo.token,@"phone":self.phoneTextField.text,@"signature":signature};
+    if (self.valueStr == nil) {
+        [XYProgressHUD showMessage:@"未获取到有效url"];
+    
+        return;
+    }
+    [_codeButton countDownFromTime:10 title:@"重新获取验证码" unitTitle:@"s" mainColor:[UIColor colorWithString:kThemeColorStr] countColor:[UIColor colorWithString:@"#999999"]];
+    NSString *token = @"";
+    NSString *wxid = @"0";
+    if ([XYUserInfoManager isLogin]) {
+        XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
+        token = userInfo.token;
+        wxid = userInfo.uid;
+    }
+    
+    NSString *signature = [[NSString stringWithFormat:@"%@%@%@%@",wxid,self.valueStr,self.phoneTextField.text,token] md5];
+    NSDictionary *params = @{@"qrcode":self.valueStr,@"wxid":wxid,@"token":token,@"phone":self.phoneTextField.text,@"signature":signature};
     
     [[XYNetworkManager defaultManager] post:@"getcode1" params:params success:^(id response, id responseObject) {
+        [XYProgressHUD showMessage:@"验证码发送成功，请注意查收！"];
         
-        [SVProgressHUD showSuccessWithStatus:@"验证码已发送，请注意查收!"];
         
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -73,24 +91,74 @@
     
     
     if (![self.phoneTextField hasText]) {
-        [SVProgressHUD showErrorWithStatus:@"请先输入手机号"];
+        [XYProgressHUD showMessage:@"请输入手机号"];
+        
         return;
     }
     if (![self.codeTextField hasText]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入验证码"];
+        [XYProgressHUD showMessage:@"请输入验证码"];
+        
         return;
     }
+    NSString *token = @"";
+    NSString *wxid = @"0";
+    if ([XYUserInfoManager isLogin]) {
+        XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
+        token = userInfo.token;
+        wxid = userInfo.uid;
+    }
     
-    XYUserInfoModel *userInfo = [XYUserInfoManager shareInfoManager].userInfo;
-    NSString *signature = [[NSString stringWithFormat:@"%@%@%@%@%@",userInfo.uid,self.valueStr,self.phoneTextField.text,self.codeTextField.text,userInfo.token] md5];
-    NSDictionary *params = @{@"qrcode":self.valueStr,@"wxid":userInfo.uid,@"token":userInfo.token,@"phone":self.phoneTextField.text,@"code":self.codeTextField.text,@"signature":signature};
+    NSString *signature = [[NSString stringWithFormat:@"%@%@%@%@%@",wxid,self.valueStr,self.phoneTextField.text,self.codeTextField.text,token] md5];
+    NSDictionary *params = @{@"qrcode":self.valueStr,@"wxid":wxid,@"token":token,@"phone":self.phoneTextField.text,@"code":self.codeTextField.text,@"signature":signature};
     
-    [[XYNetworkManager defaultManager] post:@"getgoodinfo" params:params success:^(id response, id responseObject) {
+    
+    XYNetworkManager *manager = [XYNetworkManager defaultManager];
+    manager.isShowHUD = NO;
+    [manager post:@"getgoodinfo" params:params success:^(id response, id responseObject) {
         
-        
+        XYProductInfoModel *infoModel = [XYProductInfoModel modelWithDictionary:response];
         RXQueryResultViewController *reaultVC = [[RXQueryResultViewController alloc] init];
+        reaultVC.infoModel = infoModel;
         [self.navigationController pushViewController:reaultVC animated:YES];
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        switch (error.code) {
+            case 2:
+                [SVProgressHUD showErrorWithStatus:error.domain];
+                break;
+            case 3:{
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                RXWarningViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXWarningViewController"];
+                vc.imgStr = @"warning_red";
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                
+                break;
+            case 4:{
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                RXWarningViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXWarningViewController"];
+                vc.imgStr = @"warning_orange";
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                
+                break;
+            case 5:{
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                RXWarningViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXWarningViewController"];
+                vc.imgStr = @"sad";
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+                
+            default:
+            {
+                [SVProgressHUD showErrorWithStatus:error.domain];
+            }
+                
+                break;
+        }
+       
+        
         
     }];
     

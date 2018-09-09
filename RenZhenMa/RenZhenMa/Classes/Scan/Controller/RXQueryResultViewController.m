@@ -10,10 +10,12 @@
 #import "XYCommonHeader.h"
 #import "RXResultInfoCell.h"
 #import "RXResultPersonCell.h"
-
+#import "XYProductInfoModel.h"
+#import "XYGooddDataModel.h"
 @interface RXQueryResultViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
-
+@property(nonatomic,retain)NSMutableArray *productArray;
+@property(nonatomic,retain)NSMutableArray *scanInfoArray;
 @end
 
 @implementation RXQueryResultViewController
@@ -24,10 +26,72 @@
     
     self.title = @"产品查询结果";
     
+    [self initSubViews];
+    [self configureData];
+    
+}
+
+-(void)initSubViews{
+    
     self.view.backgroundColor = DeviceBackGroundColor;
     [self.view addSubview:self.tableView];
-
+    
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor colorWithString:@"#EEEFF1"];
+    
+    UILabel *footerLabel = [[UILabel alloc] init];
+    footerLabel.font = [UIFont systemFontOfSize:14];
+    NSString *tipStr = @"温馨提示：请根据查询结果判断自己购买的产品的真伪,如果您是购买后第一次查询，扫码查询信息就只会显示一条您的查询，如果还有其他的查询信息，在您确认不是您的家人或亲朋查询的情况下，此产品就是假冒伪劣。请您联系您的卖家进行维权。";
+    
+    footerLabel.text = tipStr;
+    footerLabel.numberOfLines = 0;
+    footerLabel.textColor = [UIColor colorWithString:@"#E34B56"];
+    [footerView addSubview:footerLabel];
+    [footerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(footerView).offset(15);
+        make.right.bottom.equalTo(footerView).offset(-15);
+    }];
+    CGFloat tipH = [tipStr boundingRectWithSize:CGSizeMake(kScreenWidth - 30, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+    footerView.frame = CGRectMake(0, 0, kScreenWidth, tipH + 30);
+    self.tableView.tableFooterView = footerView;
+    
+    
+    
 }
+
+-(void)configureData{
+
+    if (self.infoModel == nil) {
+        [XYProgressHUD showMessage:@"未获取到相关信息"];
+        
+        return;
+    }
+    
+    [self.productArray addObjectsFromArray:self.infoModel.gooddata];
+    [self.scanInfoArray addObjectsFromArray:self.infoModel.scaninfo];
+    [self.tableView reloadData];
+    
+}
+-(UIView *)createInfoView:(NSString *)infoStr{
+    
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor clearColor];
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor blackColor];//LabelTextBlackColor
+    label.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
+    [view addSubview:label];
+    label.text = infoStr;
+    //label
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(view.mas_left).mas_offset(SCALE375_WIDTH(15));
+        make.right.mas_equalTo(view.mas_right).mas_offset(-SCALE375_WIDTH(60));
+        make.centerY.equalTo(view.mas_centerY);
+        make.height.mas_equalTo(SCALE375_WIDTH(16));
+    }];
+    return view;
+}
+
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
@@ -36,16 +100,17 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
-    }else if (section == 0) {
-        return 10;
+    }else if (section == 1) {
+        return self.productArray.count;
     }else{
-        return 10;
+        return self.scanInfoArray.count;
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         RXResultInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXResultInfoCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = self.infoModel.good;
         return cell;
      
     }else if(indexPath.section==1){
@@ -54,23 +119,20 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         }
-        cell.textLabel.text = @"产品名称";
-        cell.detailTextLabel.text = @"认真码";
+        XYGooddDataModel *model = self.productArray[indexPath.row];
+        cell.textLabel.text = model.key;
+        cell.detailTextLabel.text = model.val;
 
         return cell;
     }else{
         RXResultPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXResultPersonCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.model = self.scanInfoArray[indexPath.row];
+        
         return cell;
     }
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==1) {
-        return SCALE375_WIDTH(45);
-    }else{
-        return self.tableView.rowHeight;
-    }
-}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0){
@@ -83,29 +145,58 @@
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] init];
-    view.backgroundColor = [UIColor clearColor];
-    UILabel *label = [[UILabel alloc] init];
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor blackColor];//LabelTextBlackColor
-    label.font = [UIFont systemFontOfSize:SCALE375_WIDTH(15)];
+ 
     if (section==1) {
-        label.text =@"产品信息";
-
+        
+        return [self createInfoView:@"产品信息"];
     }else if (section==2){
-        label.text =@"扫码查询信息";
-
+        UILabel *personLabel = [[UILabel alloc] init];
+        personLabel.font = [UIFont boldSystemFontOfSize:14];
+        personLabel.text = @"查码人";
+        personLabel.backgroundColor = [UIColor whiteColor];
+        personLabel.textAlignment = NSTextAlignmentCenter;
+        
+        UILabel *phoneLabel = [[UILabel alloc] init];
+        phoneLabel.font = [UIFont boldSystemFontOfSize:14];
+        phoneLabel.text = @"手机号";
+        phoneLabel.backgroundColor = [UIColor whiteColor];
+        phoneLabel.textAlignment = NSTextAlignmentCenter;
+        
+        
+        UILabel *timeLabel = [[UILabel alloc] init];
+        timeLabel.font = [UIFont boldSystemFontOfSize:14];
+        timeLabel.text = @"时间";
+        timeLabel.backgroundColor = [UIColor whiteColor];
+        timeLabel.textAlignment = NSTextAlignmentCenter;
+        
+        UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[personLabel,phoneLabel,timeLabel]];
+        stackView.backgroundColor = [UIColor whiteColor];
+        stackView.axis = UILayoutConstraintAxisHorizontal;
+        stackView.distribution = UIStackViewDistributionFillEqually;
+        
+        return stackView;
     }
-    [view addSubview:label];
-    //label
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(view.mas_left).mas_offset(SCALE375_WIDTH(15));
-        make.right.mas_equalTo(view.mas_right).mas_offset(-SCALE375_WIDTH(60));
-        make.centerY.equalTo(view.mas_centerY);
-        make.height.mas_equalTo(SCALE375_WIDTH(16));
-    }];
-    return view;
+  
+    return nil;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (section == 1) {
+        
+        return [self createInfoView:@"扫码查询信息"];
+        
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    if (section == 1) {
+        return SCALE375_WIDTH(39);
+    }
+    return 0;
+}
+
 #pragma mark - getter tableView
 -(UITableView *)tableView {
     if (!_tableView) {
@@ -133,14 +224,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSMutableArray *)productArray{
+    if (!_productArray) {
+        _productArray = [NSMutableArray array];
+    }
+    return _productArray;
 }
-*/
+-(NSMutableArray *)scanInfoArray{
+    if (!_scanInfoArray) {
+        _scanInfoArray = [NSMutableArray array];
+    }
+    return _scanInfoArray;
+}
 
 @end

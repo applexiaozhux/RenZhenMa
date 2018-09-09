@@ -20,6 +20,7 @@ typedef void (^XYManagerFail)(NSURLSessionDataTask * task, NSError * error);
 
 +(instancetype)defaultManager;
 
+@property (nonatomic,assign) BOOL isShowHUD;
 -(void)post:(NSString *)url
      params:(NSDictionary *)params
     success:(XYManagerSuccess)success

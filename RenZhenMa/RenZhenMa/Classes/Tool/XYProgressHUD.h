@@ -1,5 +1,5 @@
 //
-//  NSString+MD5.h
+//  XYProgressHUD.h
 //  RenZhenMa
 //
 //  Created by 乔喜洋 on 2018/9/8.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (MD5)
-- (NSString *)md5;
--(NSString *)timeStampString:(NSString *)formatter;
+@interface XYProgressHUD : NSObject
++(void)showMessage:(NSString *)message;
 @end

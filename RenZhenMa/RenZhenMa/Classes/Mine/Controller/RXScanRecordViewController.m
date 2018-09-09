@@ -10,11 +10,12 @@
 #import "XYCommonHeader.h"
 #import "RXScanRecord.h"
 #import "RXScanRecordModel.h"
-
+#import <MJRefresh.h>
+#import "RXQueryResultViewController.h"
 @interface RXScanRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listArr;
-
+@property(nonatomic,assign)NSInteger page;
 @end
 
 @implementation RXScanRecordViewController
@@ -32,7 +33,7 @@
 }
 
 -(void)initView{
-    
+    self.page = 1;
     _tableView = ({
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
@@ -50,6 +51,10 @@
     });
     [self.view addSubview:self.tableView];
     
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadData];
+    }];
+    
 }
 
 //获取扫描记录调用接口（扫描记录页） code为1时，把info数据显示出来。 code不为1，根据返回结果message给出提示
@@ -59,17 +64,20 @@
         return;
     }
     XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
-    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@"1",@"num":@"10",@"token":userinfo.token};
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@(self.page),@"num":@"10",@"token":userinfo.token};
     
     [[XYNetworkManager defaultManager] post:@"scanRecord" params:dic success:^(id response, id responseObject) {
+        [self.tableView.mj_footer endRefreshing];
         NSArray *data = (NSArray *)response;
         for (NSDictionary *list in data) {
             RXScanRecordModel *model = [RXScanRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];
         }
         [self.tableView reloadData];
-    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        self.page += 1;
         
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.mj_footer endRefreshing];
     }];
     
 }
@@ -82,7 +90,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RXScanRecord *cell = [tableView dequeueReusableCellWithIdentifier:@"RXScanRecord"];
     RXScanRecordModel *model = self.listArr[indexPath.row];
-    [cell.iconImg sd_setImageWithURL:[NSURL URLWithString:model.simg]];
+    
+    [cell.iconImg sd_setImageWithURL:[NSURL URLWithString:model.simg] placeholderImage:[UIImage imageNamed:@"photoPlacehold"]];
     cell.titleLab.text = model.goods_name;
     cell.detailLab.text = model.key_name;
     cell.timeLab.text = model.utime;
@@ -92,6 +101,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+//    RXQueryResultViewController *resultVC = [[RXQueryResultViewController alloc] init];
+//
+//    [self.navigationController pushViewController:resultVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

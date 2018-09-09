@@ -7,7 +7,8 @@
 //
 
 #import "RXResultInfoCell.h"
-
+#import "XYGoodModel.h"
+#import <UIImageView+WebCache.h>
 @implementation RXResultInfoCell
 
 - (void)awakeFromNib {
@@ -19,6 +20,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setModel:(XYGoodModel *)model{
+    _model = model;
+    
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"photoPlacehold"]];
+    
+    self.rzmLabel.text = [NSString stringWithFormat:@"认证码：%@",model.rzm];
+    self.productLabel.text = model.goodname;
 }
 
 @end

@@ -10,6 +10,8 @@
 #import "XYZQRScanView.h"
 #import "XYCommonHeader.h"
 #import "RXScanCodeViewController.h"
+#import "UIImage+XYColorString.h"
+#import "RXWarningViewController.h"
 @interface XYShowScanViewController ()<XYZQRScanDelegate>
 @property (nonatomic ,strong) XYZQRScanView *scanView;
 
@@ -29,12 +31,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.scanView startScanning];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage navigationBarImageWithColorString:kThemeColorStr] forBarMetrics:UIBarMetricsDefault];
+}
+
 -(void)initSubViews{
     
     [self.view addSubview:self.scanView];
-    [self.scanView startScanning];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
+    
     UIImage *leftImage = [[UIImage imageNamed:@"guanbi"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:leftImage style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonClick)];
     
@@ -48,24 +61,23 @@
 
 -(void)uploadData:(NSString *)urlPath{
     
-    if (![XYUserInfoManager isLogin]) {
-        [SVProgressHUD showErrorWithStatus:@"请您先登录"];
-        return;
-    }
+   
     if ([urlPath hasPrefix:@"http://www.renzhenma.com"]&&[urlPath containsString:@"rzm="]) {
         NSArray *array = [urlPath componentsSeparatedByString:@"="];
         if (array.count == 2) {
             
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             RXScanCodeViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXScanCodeViewController"];
+            vc.valueStr = array.lastObject;
             [self.navigationController pushViewController:vc animated:YES];
-        }else{
-            
+            return;
         }
-    }else{
-        
-        
     }
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RXWarningViewController *vc = [story instantiateViewControllerWithIdentifier:@"RXWarningViewController"];
+    vc.imgStr = @"warning_red";
+    vc.warningContent = @"非常抱歉！你查询的认真码不存在!";
+    [self.navigationController pushViewController:vc animated:YES];
     
     
 }

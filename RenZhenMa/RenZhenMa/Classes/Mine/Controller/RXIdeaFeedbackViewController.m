@@ -158,8 +158,8 @@
     NSDictionary *dic=@{@"wxid":userinfo.uid,@"token":userinfo.token,@"info":@"str"};
 
     [[XYNetworkManager defaultManager] post:@"suggest" params:dic success:^(id response, id responseObject) {
-        
-        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+        [XYProgressHUD showMessage:@"提交成功"];
+    
         [self.navigationController popViewControllerAnimated:YES];
         
     } fail:^(NSURLSessionDataTask *task, NSError *error) {

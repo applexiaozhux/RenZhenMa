@@ -11,6 +11,12 @@
 
 @interface RXWarningViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *waringImageView;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+- (IBAction)backClick;
+
+
 @end
 
 @implementation RXWarningViewController
@@ -20,22 +26,26 @@
     // Do any additional setup after loading the view.
     
     self.title = @"警告";
-
+    
+    self.waringImageView.image = [UIImage imageNamed:self.imgStr];
+    if (self.warningContent != nil) {
+        self.contentLabel.text = self.warningContent;
+    }
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)backClick {
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
 }
-*/
-
 @end

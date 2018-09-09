@@ -48,6 +48,12 @@
 		BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */; };
 		BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */; };
 		BCFA4BA12143752C000E6ACB /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BA02143752C000E6ACB /* NSString+MD5.m */; };
+		BCFA4BA52143CD54000E6ACB /* XYProductInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BA42143CD54000E6ACB /* XYProductInfoModel.m */; };
+		BCFA4BA82143CD70000E6ACB /* XYGoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BA72143CD70000E6ACB /* XYGoodModel.m */; };
+		BCFA4BAB2143CDBE000E6ACB /* XYGooddDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BAA2143CDBE000E6ACB /* XYGooddDataModel.m */; };
+		BCFA4BAE2143CDF8000E6ACB /* XYScanInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BAD2143CDF8000E6ACB /* XYScanInfoModel.m */; };
+		BCFA4BB12143F9ED000E6ACB /* XYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BB02143F9ED000E6ACB /* XYProgressHUD.m */; };
+		BCFA4BB4214404EF000E6ACB /* UIButton+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4BB3214404EF000E6ACB /* UIButton+CountDown.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +154,18 @@
 		BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYNetworkManager.m; sourceTree = "<group>"; };
 		BCFA4B9F2143752C000E6ACB /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		BCFA4BA02143752C000E6ACB /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		BCFA4BA32143CD54000E6ACB /* XYProductInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYProductInfoModel.h; sourceTree = "<group>"; };
+		BCFA4BA42143CD54000E6ACB /* XYProductInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYProductInfoModel.m; sourceTree = "<group>"; };
+		BCFA4BA62143CD70000E6ACB /* XYGoodModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYGoodModel.h; sourceTree = "<group>"; };
+		BCFA4BA72143CD70000E6ACB /* XYGoodModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYGoodModel.m; sourceTree = "<group>"; };
+		BCFA4BA92143CDBE000E6ACB /* XYGooddDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYGooddDataModel.h; sourceTree = "<group>"; };
+		BCFA4BAA2143CDBE000E6ACB /* XYGooddDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYGooddDataModel.m; sourceTree = "<group>"; };
+		BCFA4BAC2143CDF8000E6ACB /* XYScanInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYScanInfoModel.h; sourceTree = "<group>"; };
+		BCFA4BAD2143CDF8000E6ACB /* XYScanInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYScanInfoModel.m; sourceTree = "<group>"; };
+		BCFA4BAF2143F9ED000E6ACB /* XYProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYProgressHUD.h; sourceTree = "<group>"; };
+		BCFA4BB02143F9ED000E6ACB /* XYProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYProgressHUD.m; sourceTree = "<group>"; };
+		BCFA4BB2214404EF000E6ACB /* UIButton+CountDown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+CountDown.h"; sourceTree = "<group>"; };
+		BCFA4BB3214404EF000E6ACB /* UIButton+CountDown.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CountDown.m"; sourceTree = "<group>"; };
 		E934B21F13BD7DB3050D0A85 /* Pods-RenZhenMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenZhenMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RenZhenMa/Pods-RenZhenMa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,6 +258,7 @@
 		57842A1A2140B9CF006DF676 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				BCFA4BA22143CD27000E6ACB /* Model */,
 				57756AFA21421122007A9B02 /* View */,
 				57842A1B2140B9CF006DF676 /* Controller */,
 			);
@@ -333,6 +352,8 @@
 				57842A342140BB53006DF676 /* UIImage+XYColorString.m */,
 				BCFA4B9F2143752C000E6ACB /* NSString+MD5.h */,
 				BCFA4BA02143752C000E6ACB /* NSString+MD5.m */,
+				BCFA4BB2214404EF000E6ACB /* UIButton+CountDown.h */,
+				BCFA4BB3214404EF000E6ACB /* UIButton+CountDown.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -409,6 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				BCFA4B9521435ED8000E6ACB /* XYNetworking */,
+				BCFA4BAF2143F9ED000E6ACB /* XYProgressHUD.h */,
+				BCFA4BB02143F9ED000E6ACB /* XYProgressHUD.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -446,6 +469,21 @@
 				BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */,
 			);
 			path = XYNetworking;
+			sourceTree = "<group>";
+		};
+		BCFA4BA22143CD27000E6ACB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCFA4BA32143CD54000E6ACB /* XYProductInfoModel.h */,
+				BCFA4BA42143CD54000E6ACB /* XYProductInfoModel.m */,
+				BCFA4BA62143CD70000E6ACB /* XYGoodModel.h */,
+				BCFA4BA72143CD70000E6ACB /* XYGoodModel.m */,
+				BCFA4BA92143CDBE000E6ACB /* XYGooddDataModel.h */,
+				BCFA4BAA2143CDBE000E6ACB /* XYGooddDataModel.m */,
+				BCFA4BAC2143CDF8000E6ACB /* XYScanInfoModel.h */,
+				BCFA4BAD2143CDF8000E6ACB /* XYScanInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,8 +664,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3A136B2141003D002F450C /* RXIdeaFeedbackViewController.m in Sources */,
+				BCFA4BB12143F9ED000E6ACB /* XYProgressHUD.m in Sources */,
 				BC3A13612140CEDB002F450C /* MineTableViewCell.m in Sources */,
 				57756B15214221FE007A9B02 /* RXResultInfoCell.m in Sources */,
+				BCFA4BA82143CD70000E6ACB /* XYGoodModel.m in Sources */,
 				BC3A136821410008002F450C /* RXFeedRecordViewController.m in Sources */,
 				57756B002142130F007A9B02 /* XYShowScanViewController.m in Sources */,
 				BCFA4B91214357A4000E6ACB /* XYUserInfoManager.m in Sources */,
@@ -644,17 +684,21 @@
 				BC3A1371214104E2002F450C /* RXAboutsViewController.m in Sources */,
 				BCFA4BA12143752C000E6ACB /* NSString+MD5.m in Sources */,
 				BC21DC8F214203870065E371 /* RXScanCodeViewController.m in Sources */,
+				BCFA4BB4214404EF000E6ACB /* UIButton+CountDown.m in Sources */,
 				BC21DC95214206640065E371 /* RXQueryResultViewController.m in Sources */,
 				BC3460DD21411E580059E38F /* RXFeedRecordModel.m in Sources */,
 				BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */,
 				BC3A137521410D84002F450C /* RXFeedRecordCell.m in Sources */,
 				BC3A13652140FFBD002F450C /* RXScanRecordViewController.m in Sources */,
+				BCFA4BAE2143CDF8000E6ACB /* XYScanInfoModel.m in Sources */,
 				BC21DC892141FD410065E371 /* RXLoginViewController.m in Sources */,
 				BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */,
 				BC3460DA21411CF20059E38F /* RXScanRecordModel.m in Sources */,
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
 				57756B16214221FE007A9B02 /* RXResultPersonCell.m in Sources */,
+				BCFA4BA52143CD54000E6ACB /* XYProductInfoModel.m in Sources */,
+				BCFA4BAB2143CDBE000E6ACB /* XYGooddDataModel.m in Sources */,
 				57756B5421425B53007A9B02 /* RippleAnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

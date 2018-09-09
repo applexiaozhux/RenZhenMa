@@ -16,3 +16,4 @@
 #import "XYNetworkManager.h"
 #import <UIImageView+WebCache.h>
 #import "NSString+MD5.h"
+#import "XYProgressHUD.h"

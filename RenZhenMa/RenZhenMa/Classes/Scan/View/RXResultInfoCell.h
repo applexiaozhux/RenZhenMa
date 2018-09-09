@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class XYGoodModel;
 @interface RXResultInfoCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *productLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *rzmLabel;
+
+
+@property(nonatomic,retain) XYGoodModel *model;
 
 @end

@@ -172,17 +172,31 @@ static NSString *MineTableViewCellIdentifier = @"MineTableViewCellIdentifier";
 //    [self.navigationController pushViewController:vc animated:YES];
 
     if (indexPath.row ==0) {//扫描记录
-        RXScanRecordViewController *vc = [[RXScanRecordViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [XYUserInfoManager showLoginViewController:^(BOOL success) {
+            if (success) {
+                RXScanRecordViewController *vc = [[RXScanRecordViewController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        } controller:self];
+        
     }else if (indexPath.row == 1) {//反馈记录
-        RXFeedRecordViewController *vc = [[RXFeedRecordViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [XYUserInfoManager showLoginViewController:^(BOOL success) {
+            if (success) {
+                RXFeedRecordViewController *vc = [[RXFeedRecordViewController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        } controller:self];
+        
     }else if (indexPath.row == 2) {//意见反馈
-        RXIdeaFeedbackViewController *vc = [[RXIdeaFeedbackViewController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
+        [XYUserInfoManager showLoginViewController:^(BOOL success) {
+            if (success) {
+                RXIdeaFeedbackViewController *vc = [[RXIdeaFeedbackViewController alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        } controller:self];
     }else{//设置
         RXSettingViewController *vc = [[RXSettingViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;

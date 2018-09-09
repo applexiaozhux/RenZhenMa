@@ -10,11 +10,11 @@
 #import "XYCommonHeader.h"
 #import "RXFeedRecordCell.h"
 #import "RXFeedRecordModel.h"
-
+#import <MJRefresh.h>
 @interface RXFeedRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listArr;
-
+@property(nonatomic,assign) NSInteger page;
 @end
 
 @implementation RXFeedRecordViewController
@@ -31,7 +31,7 @@
     [self loadData];
 }
 -(void)initView{
-    
+    self.page = 1;
     _tableView = ({
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.showsVerticalScrollIndicator = NO;
@@ -48,35 +48,64 @@
         tableView;
     });
     [self.view addSubview:self.tableView];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadData];
+    }];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.page = 1;
+        [self loadData];
+    }];
     
 }
 //获取反馈记录调用接口（反馈记录页） code为1时，把info数据显示出来。 code不为1，根据返回结果message给出提示
 -(void)loadData{
-    [self.listArr removeAllObjects];
 
-    if (![XYUserInfoManager isLogin]) {
-        return;
-    }
+    [XYUserInfoManager showLoginViewController:^(BOOL success) {
+        if (success) {
+            [self requestData];
+        }else{
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView.mj_header endRefreshing];
+        }
+    } controller:self];
+
+  
+}
+
+-(void)requestData{
+    
     XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
-    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@"1",@"num":@"10",@"token":userinfo.token};
-
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"page":@(self.page),@"num":@"10",@"token":userinfo.token};
+    
+    
     [[XYNetworkManager defaultManager] post:@"getSuggest" params:dic success:^(id response, id responseObject) {
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
+        if (self.page == 1) {
+            [self.listArr removeAllObjects];
+        }
         NSArray *data = (NSArray *)response;
+        if (data.count == 0) {
+            [XYProgressHUD showMessage:@"没有更多数据了"];
+            
+            return ;
+        }
         for (NSDictionary *list in data) {
             RXFeedRecordModel *model = [RXFeedRecordModel modelWithDictionary:list];
             [self.listArr addObject:model];
         }
         [self.tableView reloadData];
+        self.page += 1;
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
     }];
-  
 }
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listArr.count;
-//    return 10;
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

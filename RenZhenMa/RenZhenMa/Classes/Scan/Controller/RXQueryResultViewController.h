@@ -7,7 +7,9 @@
 // 产品查询结果
 
 #import <UIKit/UIKit.h>
-
+@class XYProductInfoModel;
 @interface RXQueryResultViewController : UIViewController
+
+@property(nonatomic,retain) XYProductInfoModel *infoModel;
 
 @end

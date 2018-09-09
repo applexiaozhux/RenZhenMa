@@ -24,4 +24,20 @@
             ];
 }
 
+
+-(NSString *)timeStampString:(NSString *)formatter{
+    NSTimeInterval time = formatter.integerValue;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
+    if (formatter == nil) {
+        [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    }else{
+         [dateFormat setDateFormat:formatter];
+    }
+    NSString* string=[dateFormat stringFromDate:date];
+   
+    return string;
+    
+}
+
 @end

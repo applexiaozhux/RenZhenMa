@@ -7,7 +7,8 @@
 //
 
 #import "RXResultPersonCell.h"
-
+#import "XYScanInfoModel.h"
+#import "XYCommonHeader.h"
 @implementation RXResultPersonCell
 
 - (void)awakeFromNib {
@@ -20,5 +21,18 @@
 
     // Configure the view for the selected state
 }
+
+-(void)setModel:(XYScanInfoModel *)model{
+    _model = model;
+    
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"user2"]];
+    self.nickNameLabel.text = model.nick;
+    self.phoneLabel.text = model.phone;
+    NSString *timeDay = [model.utime timeStampString:@"yyyy-MM-dd"];
+    NSString *timeSecond = [model.utime timeStampString:@"HH:mm:ss"];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@\n%@",timeDay,timeSecond];
+    
+}
+
 
 @end

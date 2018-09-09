@@ -24,7 +24,7 @@
     self.title = @"设置";
     self.view.backgroundColor = DeviceBackGroundColor;
     _listArr = [NSMutableArray array];
-    if (![XYUserInfoManager isLogin]) {
+    if ([XYUserInfoManager isLogin]) {
         [_listArr addObjectsFromArray:@[@"关于我们",@"退出"]];
         
     }else{

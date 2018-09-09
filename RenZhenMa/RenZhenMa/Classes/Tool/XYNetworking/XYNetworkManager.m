@@ -27,7 +27,7 @@
     dispatch_once(&onceToken, ^{
         networkManager = [[XYNetworkManager alloc] init];
         networkManager.manager = [XYNetworkManager managerWithBaseURL:kBaseURL sessionConfiguration:NO];
-
+        networkManager.isShowHUD = YES;
     });
     return networkManager;
 }
@@ -40,14 +40,20 @@
     NSString *urlPath = [NSString stringWithFormat:@"%@/%@",kBaseURL,url];
     NSLog(@"urlPath = %@,params = %@",urlPath,params);
 
+    if (self.isShowHUD) {
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        [SVProgressHUD show];
+    }
+    
     [self.manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+        [SVProgressHUD dismiss];
         NSDictionary *dic = [XYNetworkManager responseConfiguration:responseObject];
         NSLog(@"response = %@",dic);
-        if ([[NSString stringWithFormat:@"%@",[dic objectForKey:@"code"]] isEqualToString:@"1"]) {
+        NSString *code = [NSString stringWithFormat:@"%@",[dic objectForKey:@"code"]];
+        if ([code isEqualToString:@"1"]) {
             
             id info = dic[@"info"];
             if (success) {
@@ -56,17 +62,28 @@
             
         }else{
             NSString *messageStr = [dic objectForKey:@"message"];
-            [SVProgressHUD showErrorWithStatus:messageStr];
+            if (self.isShowHUD) {
+                
+                [SVProgressHUD showErrorWithStatus:messageStr];
+            }
+            
             if (fail) {
-                fail(nil,nil);
+                NSError *error = [NSError errorWithDomain:messageStr code:code.integerValue userInfo:nil];
+                fail(nil,error);
             }
         }
+        self.isShowHUD = YES;
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
         if (fail) {
             fail(task,error);
-            [SVProgressHUD showErrorWithStatus:error.debugDescription];
+        
         }
+        if (self.isShowHUD) {
+            [SVProgressHUD showErrorWithStatus:error.domain];
+        }
+        self.isShowHUD = YES;
     }];
     
     

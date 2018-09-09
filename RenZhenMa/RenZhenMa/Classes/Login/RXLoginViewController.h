@@ -10,4 +10,6 @@
 
 @interface RXLoginViewController : UIViewController
 
+@property(nonatomic,copy) void (^loginDone)(BOOL success);
+
 @end
