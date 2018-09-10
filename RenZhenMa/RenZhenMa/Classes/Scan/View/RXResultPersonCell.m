@@ -25,7 +25,7 @@
 -(void)setModel:(XYScanInfoModel *)model{
     _model = model;
     
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"user2"]];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"avatar_man"]];
     self.nickNameLabel.text = model.nick;
     self.phoneLabel.text = model.phone;
     NSString *timeDay = [model.utime timeStampString:@"yyyy-MM-dd"];

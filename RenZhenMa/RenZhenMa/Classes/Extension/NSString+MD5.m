@@ -26,7 +26,7 @@
 
 
 -(NSString *)timeStampString:(NSString *)formatter{
-    NSTimeInterval time = formatter.integerValue;
+    NSTimeInterval time = self.integerValue;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
     NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
     if (formatter == nil) {

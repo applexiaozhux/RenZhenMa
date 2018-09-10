@@ -14,7 +14,9 @@
 #import <UMAnalytics/MobClick.h>
 #import "MarqueeView.h"
 #import "XYNotificationModel.h"
+#import "XYNormalWebViewController.h"
 #import "XYNotificationViewController.h"
+
 @interface XYScanMainViewController ()
 
 @property(nonatomic,retain)UIButton *scanButton;
@@ -23,6 +25,8 @@
 @property (nonatomic, strong) MarqueeView *marqueeView;
 @property(nonatomic,strong) UIView *headerView;
 @property (nonatomic,retain) NSMutableArray *notiArray;
+
+
 @end
 
 @implementation XYScanMainViewController
@@ -30,9 +34,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"认证码";
+    self.navigationItem.title = @"认真码";
     [self initSubViews];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToADV:) name:kAdvNoti object:nil];
     [self requestData];
 }
 
@@ -82,6 +86,17 @@
     
     
 }
+
+-(void)pushToADV:(NSNotification *)noti{
+    
+    NSString *url = noti.object;
+    XYNormalWebViewController *webVC = [[XYNormalWebViewController alloc] init];
+    webVC.urlStr = url;
+    webVC.title = @"广告详情";
+    [self.navigationController pushViewController:webVC animated:YES];
+    
+}
+
 
 -(void)configureTongzhi:(NSArray *)titleArray{
     
@@ -165,7 +180,9 @@
 }
 
 
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark - Getter
 -(UIButton *)scanButton{

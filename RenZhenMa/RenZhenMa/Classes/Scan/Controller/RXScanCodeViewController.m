@@ -78,7 +78,7 @@
     
         return;
     }
-    [_codeButton countDownFromTime:10 title:@"重新获取验证码" unitTitle:@"s" mainColor:[UIColor colorWithString:kThemeColorStr] countColor:[UIColor colorWithString:@"#999999"]];
+    [_codeButton countDownFromTime:90 title:@"重新获取验证码" unitTitle:@"s" mainColor:[UIColor colorWithString:kThemeColorStr] countColor:[UIColor colorWithString:@"#999999"]];
     NSString *token = @"";
     NSString *wxid = @"0";
     if ([XYUserInfoManager isLogin]) {
@@ -90,7 +90,7 @@
     NSString *signature = [[NSString stringWithFormat:@"%@%@%@%@",wxid,self.valueStr,self.phoneTextField.text,token] md5];
     NSDictionary *params = @{@"qrcode":self.valueStr,@"wxid":wxid,@"token":token,@"phone":self.phoneTextField.text,@"signature":signature};
     
-    [[XYNetworkManager defaultManager] post:@"getcode1" params:params success:^(id response, id responseObject) {
+    [[XYNetworkManager defaultManager] post:@"getcode" params:params success:^(id response, id responseObject) {
         [XYProgressHUD showMessage:@"验证码发送成功，请注意查收！"];
         
         

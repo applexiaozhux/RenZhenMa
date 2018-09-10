@@ -10,4 +10,6 @@
 
 @interface XYNormalWebViewController : UIViewController
 
+@property (nonatomic,copy) NSString *urlStr;
+
 @end

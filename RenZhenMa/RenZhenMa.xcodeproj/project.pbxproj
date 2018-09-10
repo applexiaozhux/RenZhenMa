@@ -52,6 +52,8 @@
 		BC3A137A21411567002F450C /* RXScanRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3A137821411567002F450C /* RXScanRecord.m */; };
 		BC3A137B21411567002F450C /* RXScanRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3A137921411567002F450C /* RXScanRecord.xib */; };
 		BCDFAC712144DC380096ABB6 /* RXLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDFAC702144DC380096ABB6 /* RXLocationManager.m */; };
+		BCDFAC742144E6550096ABB6 /* XYAdvicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCDFAC732144E6550096ABB6 /* XYAdvicationModel.m */; };
+		BCDFAC76214501190096ABB6 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDFAC75214501190096ABB6 /* Photos.framework */; };
 		BCFA4B91214357A4000E6ACB /* XYUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */; };
 		BCFA4B9421435806000E6ACB /* XYUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9321435806000E6ACB /* XYUserInfoModel.m */; };
 		BCFA4B9B21435F36000E6ACB /* XYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFA4B9A21435F36000E6ACB /* XYNetworkManager.m */; };
@@ -169,6 +171,9 @@
 		BC3A137921411567002F450C /* RXScanRecord.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RXScanRecord.xib; sourceTree = "<group>"; };
 		BCDFAC6F2144DC380096ABB6 /* RXLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RXLocationManager.h; sourceTree = "<group>"; };
 		BCDFAC702144DC380096ABB6 /* RXLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RXLocationManager.m; sourceTree = "<group>"; };
+		BCDFAC722144E6550096ABB6 /* XYAdvicationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYAdvicationModel.h; sourceTree = "<group>"; };
+		BCDFAC732144E6550096ABB6 /* XYAdvicationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYAdvicationModel.m; sourceTree = "<group>"; };
+		BCDFAC75214501190096ABB6 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		BCFA4B8F214357A4000E6ACB /* XYUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoManager.h; sourceTree = "<group>"; };
 		BCFA4B90214357A4000E6ACB /* XYUserInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoManager.m; sourceTree = "<group>"; };
 		BCFA4B9221435806000E6ACB /* XYUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYUserInfoModel.h; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCDFAC76214501190096ABB6 /* Photos.framework in Frameworks */,
 				BB51024A52E190CCBF05BAC5 /* libPods-RenZhenMa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +227,7 @@
 		3F0379AC221F3987E93F7337 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCDFAC75214501190096ABB6 /* Photos.framework */,
 				82B66C0E8A022D68D174389A /* libPods-RenZhenMa.a */,
 			);
 			name = Frameworks;
@@ -528,6 +535,8 @@
 				BCFA4BAD2143CDF8000E6ACB /* XYScanInfoModel.m */,
 				8BD8B7B52144D74F005937C4 /* XYNotificationModel.h */,
 				8BD8B7B62144D74F005937C4 /* XYNotificationModel.m */,
+				BCDFAC722144E6550096ABB6 /* XYAdvicationModel.h */,
+				BCDFAC732144E6550096ABB6 /* XYAdvicationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -749,6 +758,7 @@
 				57842A2A2140BA4C006DF676 /* XYMineMainViewController.m in Sources */,
 				57842A382140BB67006DF676 /* ColorUtils.m in Sources */,
 				57756B16214221FE007A9B02 /* RXResultPersonCell.m in Sources */,
+				BCDFAC742144E6550096ABB6 /* XYAdvicationModel.m in Sources */,
 				BCFA4BA52143CD54000E6ACB /* XYProductInfoModel.m in Sources */,
 				BCFA4BAB2143CDBE000E6ACB /* XYGooddDataModel.m in Sources */,
 				8BD8B7B42144D6D5005937C4 /* XYNotificationViewController.m in Sources */,
@@ -924,7 +934,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NJZFZ43S58;
+				DEVELOPMENT_TEAM = Y7S6FDJM9Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
@@ -933,7 +943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.com.RenZhenMa;
+				PRODUCT_BUNDLE_IDENTIFIER = renzhenma.com.RenZhenMa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -945,7 +955,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NJZFZ43S58;
+				DEVELOPMENT_TEAM = Y7S6FDJM9Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/RenZhenMa/Classes/Info.plist";
@@ -954,7 +964,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.com.RenZhenMa;
+				PRODUCT_BUNDLE_IDENTIFIER = renzhenma.com.RenZhenMa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

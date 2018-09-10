@@ -12,8 +12,9 @@
 #import "XYProgressHUD.h"
 #import "XYConst.h"
 #import <UMCommon/UMCommon.h>
-
-@interface AppDelegate ()
+#import <XHLaunchAd.h>
+#import "XYAdvicationModel.h"
+@interface AppDelegate ()<XHLaunchAdDelegate>
 
 @end
 
@@ -28,12 +29,27 @@
     XYTabBarController *tabBarController = [[XYTabBarController alloc] init];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
-    
-
 
     [self listenNetWorkingStatus];
     
     [UMConfigure initWithAppkey:kUMAppkey channel:@"App Store"];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    NSData *advData = [[NSUserDefaults standardUserDefaults] objectForKey:kAdvKey];
+    if (advData != nil) {
+        XYAdvicationModel *advModel = [NSKeyedUnarchiver unarchiveObjectWithData:advData];
+        
+        [XHLaunchAd setLaunchSourceType:SourceTypeLaunchScreen];
+        //配置广告数据
+        XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration defaultConfiguration];
+        imageAdconfiguration.duration = [advModel.palytime integerValue];
+        //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
+        imageAdconfiguration.imageNameOrURLString = advModel.imgsrc;
+        //广告点击打开页面参数(openModel可为NSString,模型,字典等任意类型)
+        imageAdconfiguration.openModel = advModel.url;
+        //显示图片开屏广告
+        [XHLaunchAd imageAdWithImageAdConfiguration:imageAdconfiguration delegate:self];
+    }
+
     return YES;
 }
 
@@ -98,6 +114,13 @@
     
     //开启网络监听
     [manager startMonitoring];
+}
+
+//广告点击
+- (void)xhLaunchAd:(XHLaunchAd *)launchAd clickAndOpenModel:(id)openModel clickPoint:(CGPoint)clickPoint{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAdvNoti object:openModel];
+    
 }
 
 @end

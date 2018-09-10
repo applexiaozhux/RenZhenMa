@@ -11,7 +11,7 @@
 #import "RXFeedRecordCell.h"
 #import "RXFeedRecordModel.h"
 #import <MJRefresh.h>
-@interface RXFeedRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface RXFeedRecordViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listArr;
 @property(nonatomic,assign) NSInteger page;
@@ -46,6 +46,8 @@
         tableView.separatorColor = DeviceLineViewColor;
         tableView;
     });
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
     [self.view addSubview:self.tableView];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadData];
@@ -112,7 +114,7 @@
     RXFeedRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXFeedRecordCell"];
     RXFeedRecordModel *model = self.listArr[indexPath.row];
     cell.model = model;
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -122,6 +124,16 @@
 }
 
 
+-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [UIImage imageNamed:@"null"];
+}
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [[NSAttributedString alloc] initWithString:@"暂无数据" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -8,17 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, ChildViewControllerType) {
-    ScanChildViewController,
-    MineChildViewController
-};
 
 @interface XYTabBarController : UITabBarController
 
 
--(void)showLoginViewController;
 
--(void)showCurrentViewController:(ChildViewControllerType)type;
+
 
 
 

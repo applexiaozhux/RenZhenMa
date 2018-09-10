@@ -10,7 +10,7 @@
 #import "XYCommonHeader.h"
 #import "XYNotificationModel.h"
 #import "XYNotificationViewCell.h"
-@interface XYNotificationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface XYNotificationViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 
 @property(nonatomic,retain) UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray *dataSource;
@@ -38,6 +38,8 @@
     self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 100;
     [self.view addSubview:self.tableView];
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.emptyDataSetSource = self;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
@@ -76,12 +78,25 @@
     cell.titleLabel.text = model.title;
     cell.contentLabel.text = model.inform;
     cell.timeLabel.text = model.utime;
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return  cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
+-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [UIImage imageNamed:@"null"];
+}
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [[NSAttributedString alloc] initWithString:@"暂无数据" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    
+}
 
 
 @end

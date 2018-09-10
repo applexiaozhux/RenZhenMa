@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"用户协议";
+//    self.title = @"用户协议";
     [self initSubViews];
 }
 
@@ -37,7 +37,7 @@
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    NSURL *url = [NSURL URLWithString:@"http://www.renzhenma.com/agreement.html"];
+    NSURL *url = [NSURL URLWithString:self.urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
     

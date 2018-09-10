@@ -110,11 +110,11 @@
     }
     
     
-    [_codeButton countDownFromTime:10 title:@"重新获取验证码" unitTitle:@"s" mainColor:[UIColor colorWithString:kThemeColorStr] countColor:[UIColor colorWithString:@"#999999"]];
+    [_codeButton countDownFromTime:90 title:@"重新获取验证码" unitTitle:@"s" mainColor:[UIColor colorWithString:kThemeColorStr] countColor:[UIColor colorWithString:@"#999999"]];
     
     NSDictionary *params = @{@"phone":self.phoneTextField.text};
     
-    [[XYNetworkManager defaultManager] post:@"getPhoneCode1" params:params success:^(id response, id responseObject) {
+    [[XYNetworkManager defaultManager] post:@"getPhoneCode" params:params success:^(id response, id responseObject) {
         [XYProgressHUD showMessage:@"验证码发送成功，请注意查收！"];
     
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
@@ -125,6 +125,8 @@
 - (IBAction)serviceButtonAction {
     
     XYNormalWebViewController *webVC = [[XYNormalWebViewController alloc] init];
+    webVC.urlStr = @"http://www.renzhenma.com/agreement.html";
+    webVC.title = @"用户协议";
     [self.navigationController pushViewController:webVC animated:YES];
     
 }

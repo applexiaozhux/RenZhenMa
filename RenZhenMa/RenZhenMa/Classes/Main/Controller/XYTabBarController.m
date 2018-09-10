@@ -13,7 +13,7 @@
 #import "XYMineMainViewController.h"
 #import "XYCommonHeader.h"
 #import "RXLocationManager.h"
-
+#import "XYAdvicationModel.h"
 @interface XYTabBarController ()<UITabBarControllerDelegate>
 
 @end
@@ -38,7 +38,7 @@
     
     NSString *localitystr = [RXLocationManager manager].nowlocality;
     DLog(@"%@",localitystr);
-    
+    [self requestNotification:localitystr];
     
 }
 
@@ -58,6 +58,28 @@
     [self addController:mineVC normalImageNamed:@"my" selecteImageNamed:@"my_pre" titile:@"我的"];
     self.tabBar.tintColor = [UIColor colorWithString:kThemeColorStr];
     self.tabBar.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)requestNotification:(NSString *)city{
+    
+    if (city == nil) {
+        return;
+    }
+    XYNetworkManager *manager = [XYNetworkManager defaultManager];
+    NSDictionary *params = @{@"city":city};
+    manager.isShowHUD = NO;
+    [manager post:@"getad" params:params success:^(id response, id responseObject) {
+        
+        XYAdvicationModel *model = [XYAdvicationModel modelWithDictionary:response];
+        
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kAdvKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
 }
 
 
@@ -82,17 +104,8 @@
 
 }
 
--(void)showLoginViewController{
-//    if ([XYUserInfoManager sharedUserInfoManager].userInfo.isLogin) {
-//        [[XYUserInfoManager sharedUserInfoManager] clearUserInfoModel];
-//    }
-//    [self showLoginVC:YES];
-
-}
--(void)showCurrentViewController:(ChildViewControllerType)type{
-    
-    self.selectedIndex = type;
-    
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)addController:(UIViewController *)controller normalImageNamed:(NSString *)normal selecteImageNamed:(NSString *)selecte titile:(NSString *)title{
@@ -113,30 +126,6 @@
 
 #pragma mark - UITabBarControllerDelegate
 
-
-
-/**
- 显示登录界面
-
- @param logout 是否是点击退出登录出现的
- */
--(void)showLoginVC:(BOOL)logout{
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-//    XYLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"XYLoginVC"];
-//    loginVC.isLogOutShow = logout;
-//    __weak XYTabBarController *weakSelf= self;
-//    loginVC.loginSuccessBlock = ^{
-//        weakSelf.selectedIndex = 3;
-//    };
-//    XYNavigationViewController *navigationVC = [[XYNavigationViewController alloc] initWithRootViewController:loginVC];
-//
-//    [self presentViewController:navigationVC animated:YES completion:^{
-//
-//    }];
-    
-    
-}
 
 
 

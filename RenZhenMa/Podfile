@@ -11,4 +11,6 @@ pod 'Masonry'
 pod 'UMCCommon'
 pod 'UMCAnalytics'
 pod 'UMCSecurityPlugins'
+pod 'XHLaunchAd'
+pod 'DZNEmptyDataSet'
 end

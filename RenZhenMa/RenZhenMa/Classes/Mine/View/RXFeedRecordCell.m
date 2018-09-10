@@ -9,6 +9,7 @@
 #import "RXFeedRecordCell.h"
 #import "XYCommonHeader.h"
 #import "RXFeedRecordModel.h"
+#import "XYCommonHeader.h"
 @implementation RXFeedRecordCell
 
 - (void)awakeFromNib {
@@ -28,15 +29,19 @@
     self.titleLab.text = model.sinfo;
     NSString *str = @"";
     if (model.status&&[model.status isEqualToString:@"1"]) {
-        str = @"未读   ";
+        str = @"未读";
+        self.replayStatusLabel.textColor = [UIColor colorWithString:@"#999999"];
     }else if (model.status&&[model.status isEqualToString:@"3"]) {
-        str = @"已读   ";
+        str = @"已读";
+        self.replayStatusLabel.textColor = [UIColor colorWithString:kThemeColorStr];
     }else if (model.status&&[model.status isEqualToString:@"4"]) {
-        str = @"已回复   ";
+        str = @"已回复";
+        self.replayStatusLabel.textColor = [UIColor colorWithString:kThemeColorStr];
     }
     NSString *time = [model.times timeStampString:nil];
-    str = [str stringByAppendingString:time];
-    self.timeLab.text = str;
+
+    self.replayStatusLabel.text = str;
+    self.timeLab.text = time;
     
     if ([model.rstatus isEqualToString:@"1"]) {
         self.replyLab.text = model.rinfo;

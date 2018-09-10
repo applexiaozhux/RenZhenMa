@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *replyLab;
 @property (weak, nonatomic) IBOutlet UILabel *replyStatusLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *replayConst;
+@property (weak, nonatomic) IBOutlet UILabel *replayStatusLabel;
+
 
 @property (nonatomic,retain) RXFeedRecordModel *model;
 

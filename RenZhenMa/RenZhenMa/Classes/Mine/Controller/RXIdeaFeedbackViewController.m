@@ -155,7 +155,7 @@
         return;
     }
     XYUserInfoModel *userinfo = [XYUserInfoManager shareInfoManager].userInfo;
-    NSDictionary *dic=@{@"wxid":userinfo.uid,@"token":userinfo.token,@"info":@"str"};
+    NSDictionary *dic=@{@"wxid":userinfo.uid,@"token":userinfo.token,@"info":str};
 
     [[XYNetworkManager defaultManager] post:@"suggest" params:dic success:^(id response, id responseObject) {
         [XYProgressHUD showMessage:@"提交成功"];

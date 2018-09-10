@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.8.1)
+  - FLAnimatedImage (1.0.12)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
   - SDWebImage (4.4.1):
@@ -24,12 +26,15 @@ PODS:
     - UMCCommon
   - UMCCommon (1.5.1)
   - UMCSecurityPlugins (1.0.6)
+  - XHLaunchAd (3.9.7):
+    - FLAnimatedImage (~> 1.0.12)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
+  - DZNEmptyDataSet
   - Masonry
   - MJRefresh
   - SDWebImage
@@ -37,11 +42,14 @@ DEPENDENCIES:
   - UMCAnalytics
   - UMCCommon
   - UMCSecurityPlugins
+  - XHLaunchAd
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - DZNEmptyDataSet
+    - FLAnimatedImage
     - Masonry
     - MJRefresh
     - SDWebImage
@@ -49,10 +57,13 @@ SPEC REPOS:
     - UMCAnalytics
     - UMCCommon
     - UMCSecurityPlugins
+    - XHLaunchAd
     - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
@@ -60,8 +71,9 @@ SPEC CHECKSUMS:
   UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
   UMCCommon: 16b674e9de0616d3a6128c551348a686d869c3c7
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  XHLaunchAd: 0dc50c5af00ee5d9e734b9dce6eece7acaa71122
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 75a709681bca6762517e0546d42c10698413bd45
+PODFILE CHECKSUM: 101d72d8027f9d93f592dacfea906dcbdc35eb01
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

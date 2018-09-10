@@ -25,27 +25,13 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4d-dW-Nt5">
-                        <rect key="frame" x="15" y="181.5" width="290" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已回复" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4d-dW-Nt5">
+                        <rect key="frame" x="158" y="181.5" width="37" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="50M-mG-DSf"/>
                         </constraints>
-                        <attributedString key="attributedText">
-                            <fragment content="已回复">
-                                <attributes>
-                                    <color key="NSColor" red="0.0" green="0.66274509803921566" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" 2018-08-19 13:08">
-                                <attributes>
-                                    <color key="NSColor" red="0.58823529409999997" green="0.60784313729999995" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                        <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.66274509803921566" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="300" verticalCompressionResistancePriority="800" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uJ-og-haB">
@@ -60,28 +46,39 @@
                         <color key="textColor" red="0.0" green="0.66274509800000003" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-08-19 13:08" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN2-ga-By1">
+                        <rect key="frame" x="200" y="181" width="105" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="28U-cp-mYs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TFG-o7-cdy" firstAttribute="leading" secondItem="Hqj-RH-hZI" secondAttribute="leading" constant="15" id="8o8-8t-fpn"/>
-                    <constraint firstItem="Z4d-dW-Nt5" firstAttribute="leading" secondItem="Hqj-RH-hZI" secondAttribute="leading" constant="15" id="C9u-uu-vVt"/>
+                    <constraint firstItem="CN2-ga-By1" firstAttribute="centerY" secondItem="Z4d-dW-Nt5" secondAttribute="centerY" id="Dyu-eU-dw9"/>
                     <constraint firstItem="K4V-iM-IHf" firstAttribute="top" secondItem="9uJ-og-haB" secondAttribute="bottom" constant="10" id="Esf-zY-j27"/>
                     <constraint firstAttribute="trailing" secondItem="K4V-iM-IHf" secondAttribute="trailing" constant="15" id="Hx1-Ea-gaF"/>
                     <constraint firstItem="TFG-o7-cdy" firstAttribute="top" secondItem="Hqj-RH-hZI" secondAttribute="top" constant="15" id="Mp9-Qy-uvB"/>
-                    <constraint firstAttribute="trailing" secondItem="Z4d-dW-Nt5" secondAttribute="trailing" constant="15" id="PTY-r0-OZK"/>
                     <constraint firstItem="Z4d-dW-Nt5" firstAttribute="top" secondItem="TFG-o7-cdy" secondAttribute="bottom" constant="10" id="W4m-Hi-lUT"/>
                     <constraint firstItem="9uJ-og-haB" firstAttribute="leading" secondItem="TFG-o7-cdy" secondAttribute="leading" id="YtV-VI-6my"/>
                     <constraint firstAttribute="bottom" secondItem="K4V-iM-IHf" secondAttribute="bottom" constant="15" id="ZvU-qY-XiJ"/>
                     <constraint firstAttribute="trailing" secondItem="TFG-o7-cdy" secondAttribute="trailing" constant="15" id="a74-WA-QJE"/>
                     <constraint firstItem="K4V-iM-IHf" firstAttribute="leading" secondItem="9uJ-og-haB" secondAttribute="trailing" constant="5" id="iGJ-M4-8B0"/>
+                    <constraint firstItem="CN2-ga-By1" firstAttribute="leading" secondItem="Z4d-dW-Nt5" secondAttribute="trailing" constant="5" id="lRm-Wm-ER0"/>
                     <constraint firstItem="9uJ-og-haB" firstAttribute="top" secondItem="Z4d-dW-Nt5" secondAttribute="bottom" constant="10" id="rcI-Xb-o4O"/>
+                    <constraint firstAttribute="trailing" secondItem="CN2-ga-By1" secondAttribute="trailing" constant="15" id="yBa-7z-Ay7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="zvl-Lf-efL"/>
             <connections>
                 <outlet property="replayConst" destination="ZvU-qY-XiJ" id="Wir-9S-JFm"/>
+                <outlet property="replayStatusLabel" destination="Z4d-dW-Nt5" id="8Ek-0g-xVU"/>
                 <outlet property="replyLab" destination="K4V-iM-IHf" id="bXC-Vo-Tg5"/>
                 <outlet property="replyStatusLabel" destination="9uJ-og-haB" id="7qM-nM-XSd"/>
-                <outlet property="timeLab" destination="Z4d-dW-Nt5" id="NPb-gZ-Tda"/>
+                <outlet property="timeLab" destination="CN2-ga-By1" id="MTQ-xQ-ot9"/>
                 <outlet property="titleLab" destination="TFG-o7-cdy" id="3WX-1U-WsG"/>
             </connections>
             <point key="canvasLocation" x="19" y="304.5"/>

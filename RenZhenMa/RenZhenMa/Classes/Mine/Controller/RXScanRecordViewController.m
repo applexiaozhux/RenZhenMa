@@ -12,7 +12,7 @@
 #import "RXScanRecordModel.h"
 #import <MJRefresh.h>
 #import "RXQueryResultViewController.h"
-@interface RXScanRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface RXScanRecordViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *listArr;
 @property(nonatomic,assign)NSInteger page;
@@ -48,6 +48,8 @@
         tableView.separatorColor = DeviceLineViewColor;
         tableView;
     });
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.emptyDataSetSource = self;
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,6 +105,8 @@
     cell.titleLab.text = model.goods_name;
     cell.detailLab.text = model.key_name;
     cell.timeLab.text = model.utime;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -118,14 +122,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [UIImage imageNamed:@"null"];
 }
-*/
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    return [[NSAttributedString alloc] initWithString:@"暂无数据" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    
+}
 
 @end

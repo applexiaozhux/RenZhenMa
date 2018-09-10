@@ -56,7 +56,7 @@
     
     footerLabel.text = tipStr;
     footerLabel.numberOfLines = 0;
-    footerLabel.textColor = [UIColor colorWithString:@"#E34B56"];
+    footerLabel.textColor = [UIColor redColor];
     [footerView addSubview:footerLabel];
     [footerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(footerView).offset(15);
@@ -66,8 +66,12 @@
     footerView.frame = CGRectMake(0, 0, kScreenWidth, tipH + 30);
     self.tableView.tableFooterView = footerView;
     
-    
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return"] style:UIBarButtonItemStylePlain target:self action:@selector(backClick)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+}
+-(void)backClick{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)configureData{
@@ -114,7 +118,7 @@
     }else if (section == 1) {
         return self.productArray.count;
     }else{
-        return self.scanInfoArray.count;
+        return self.scanInfoArray.count+1;
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -130,6 +134,8 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         }
+       
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         XYGooddDataModel *model = self.productArray[indexPath.row];
         cell.textLabel.text = model.key;
         cell.detailTextLabel.text = model.val;
@@ -138,8 +144,28 @@
     }else{
         RXResultPersonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RXResultPersonCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.model = self.scanInfoArray[indexPath.row];
         
+        if (indexPath.row == 0) {
+            cell.avatarImageView.hidden = YES;
+            cell.nickNameLabel.text = @"查码人";
+            cell.phoneLabel.text = @"手机号";
+            cell.timeLabel.text = @"时间";
+//            cell.nickNameLabel.textAlignment = NSTextAlignmentCenter;
+//            cell.phoneLabel.textAlignment = NSTextAlignmentCenter;
+            cell.timeLabel.textAlignment = NSTextAlignmentCenter;
+            cell.nickNameLabel.font = [UIFont boldSystemFontOfSize:15];
+            cell.phoneLabel.font = [UIFont boldSystemFontOfSize:15];
+            cell.timeLabel.font = [UIFont boldSystemFontOfSize:15];
+        }else{
+            cell.model = self.scanInfoArray[indexPath.row-1];
+//            cell.nickNameLabel.textAlignment = NSTextAlignmentLeft;
+//            cell.phoneLabel.textAlignment = NSTextAlignmentCenter;
+            cell.timeLabel.textAlignment = NSTextAlignmentRight;
+            cell.nickNameLabel.font = [UIFont systemFontOfSize:15];
+            cell.phoneLabel.font = [UIFont systemFontOfSize:15];
+            cell.timeLabel.font = [UIFont systemFontOfSize:15];
+            cell.avatarImageView.hidden = NO;
+        }
         return cell;
     }
 }
@@ -161,51 +187,56 @@
         
         return [self createInfoView:@"产品信息"];
     }else if (section==2){
-        UILabel *personLabel = [[UILabel alloc] init];
-        personLabel.font = [UIFont boldSystemFontOfSize:14];
-        personLabel.text = @"查码人";
-        personLabel.backgroundColor = [UIColor whiteColor];
-        personLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UILabel *phoneLabel = [[UILabel alloc] init];
-        phoneLabel.font = [UIFont boldSystemFontOfSize:14];
-        phoneLabel.text = @"手机号";
-        phoneLabel.backgroundColor = [UIColor whiteColor];
-        phoneLabel.textAlignment = NSTextAlignmentCenter;
-        
-        
-        UILabel *timeLabel = [[UILabel alloc] init];
-        timeLabel.font = [UIFont boldSystemFontOfSize:14];
-        timeLabel.text = @"时间";
-        timeLabel.backgroundColor = [UIColor whiteColor];
-        timeLabel.textAlignment = NSTextAlignmentCenter;
-        
-        UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[personLabel,phoneLabel,timeLabel]];
-        stackView.backgroundColor = [UIColor whiteColor];
-        stackView.axis = UILayoutConstraintAxisHorizontal;
-        stackView.distribution = UIStackViewDistributionFillEqually;
-        
-        return stackView;
+        return [self createInfoView:@"扫码查询信息"];
+//        UILabel *personLabel = [[UILabel alloc] init];
+//        personLabel.font = [UIFont boldSystemFontOfSize:14];
+//        personLabel.text = @"查码人";
+//        personLabel.backgroundColor = [UIColor whiteColor];
+//        personLabel.textAlignment = NSTextAlignmentCenter;
+//
+//        UILabel *phoneLabel = [[UILabel alloc] init];
+//        phoneLabel.font = [UIFont boldSystemFontOfSize:14];
+//        phoneLabel.text = @"手机号";
+//        phoneLabel.backgroundColor = [UIColor whiteColor];
+//        phoneLabel.textAlignment = NSTextAlignmentCenter;
+//
+//
+//        UILabel *timeLabel = [[UILabel alloc] init];
+//        timeLabel.font = [UIFont boldSystemFontOfSize:14];
+//        timeLabel.text = @"时间";
+//        timeLabel.backgroundColor = [UIColor whiteColor];
+//        timeLabel.textAlignment = NSTextAlignmentCenter;
+//
+//        UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[personLabel,phoneLabel,timeLabel]];
+//        stackView.backgroundColor = [UIColor whiteColor];
+//        stackView.axis = UILayoutConstraintAxisHorizontal;
+//        stackView.distribution = UIStackViewDistributionFillEqually;
+//
+//        return stackView;
     }
   
     return nil;
 }
+//
+//-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    if (section == 1) {
+//
+//        return [self createInfoView:@"扫码查询信息"];
+//
+//    }
+//    return nil;
+//}
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if (section == 1) {
-        
-        return [self createInfoView:@"扫码查询信息"];
-        
-    }
-    return nil;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//
+//    if (section == 1) {
+//        return SCALE375_WIDTH(39);
+//    }
+//    return 0;
+//}
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
-    if (section == 1) {
-        return SCALE375_WIDTH(39);
-    }
-    return 0;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - getter tableView
